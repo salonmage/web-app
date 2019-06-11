@@ -1,0 +1,36 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  projectName: webapp
+  registryServerName: '$(registryName).azurecr.io'
+  imageName: '$(projectName)'
+
+steps:
+- bash: docker build -f $(system.defaultWorkingDirectory)/Dockerfile -t $(registryServerName)/$(imageName):$(build.buildId) -t $(registryServerName)/$(imageName):latest $(system.defaultWorkingDirectory)
+  displayName: 'docker build'
+
+- bash: docker login $(registryServerName) -u $(registryLogin) -p $(registryPassword)
+  displayName: 'docker login'
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
+
+- bash: |
+    docker push $(registryServerName)/$(imageName):$(build.buildId)
+    docker push $(registryServerName)/$(imageName):latest
+  displayName: 'docker push'
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
+
+- task: HelmInstaller@0
+  displayName: 'Install Helm'
+  inputs:
+    helmVersion: 2.13.0
+
+- bash: helm package --version $(build.buildId) --destination $(build.artifactStagingDirectory) $(system.defaultWorkingDirectory)/charts/$(projectName)
+  displayName: 'helm package'
+
+- bash: az acr helm push -n $(registryName) -u $(registryLogin) -p $(registryPassword) $(build.artifactStagingDirectory)/$(projectName)-$(build.buildId).tgz
+  displayName: 'az acr helm push'
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
