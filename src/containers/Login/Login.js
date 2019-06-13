@@ -21,11 +21,13 @@ import { Redirect } from "react-router-dom";
 
 const Login = props => {
   const userLogin = props.userLogin;
+
   if (userLogin) return <Redirect to="/" />;
+
   const handleLogin = () => {
     store.dispatch(actionLogin({ name: "Admin" }));
-    props.history.push("/");
   };
+  
   return (
     <div className="app flex-row align-items-center">
       <Container>

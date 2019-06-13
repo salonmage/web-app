@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import reducers from "./reducers/index";
-import rootSage from "./sagas/index";
+import rootSagas from "./sagas/index";
 
 const loadState = () => {
   try {
@@ -34,7 +34,7 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
-sagaMiddleware.run(rootSage);
+sagaMiddleware.run(rootSagas);
 
 store.subscribe(() => {
   saveState({

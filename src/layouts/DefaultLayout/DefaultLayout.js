@@ -16,7 +16,7 @@ import {
   AppSidebarNav2 as AppSidebarNav
 } from "@coreui/react";
 // sidebar nav config
-import { navStaff } from "../../_nav";
+import useNav from "../../_nav";
 // routes config
 import { routeStaff } from "../../routes";
 import { connect } from "react-redux";
@@ -34,10 +34,11 @@ const loading = () => (
 const DefaultLayout = props => {
   const userLogin = props.userLogin;
 
+  const navigation = useNav();
+
   if (!userLogin) return <Redirect to="/login" />;
 
   const routes = routeStaff;
-  const navigation = navStaff;
 
   const signOut = e => {
     e.preventDefault();
