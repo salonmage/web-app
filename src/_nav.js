@@ -20,6 +20,11 @@ const navStaff = (t) => {
           variant: "info",
           text: "NEW"
         }
+      },
+      {
+        name: t('Hồ sơ khách hàng'),
+        url: "/customer-information",
+        icon: "icon-drop"
       }
     ]
   }

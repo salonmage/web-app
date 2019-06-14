@@ -18,7 +18,7 @@ import {
 // sidebar nav config
 import useNav from "../../_nav";
 // routes config
-import { routeStaff } from "../../routes";
+import useRoutes from "../../routes";
 import { connect } from "react-redux";
 import store from "../../redux/store";
 import { actionLogout } from "../../redux/reducers/userLogin/actions";
@@ -33,18 +33,16 @@ const loading = () => (
 
 const DefaultLayout = props => {
   const userLogin = props.userLogin;
-
+  
   const navigation = useNav();
-
-  if (!userLogin) return <Redirect to="/login" />;
-
-  const routes = routeStaff;
+  const routes = useRoutes();
 
   const signOut = e => {
     e.preventDefault();
     store.dispatch(actionLogout());
   };
 
+  if (!userLogin) return <Redirect to="/login" />;
   return (
     <div className="app">
       <AppHeader fixed>
