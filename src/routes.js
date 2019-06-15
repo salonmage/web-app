@@ -1,9 +1,9 @@
-import React from "react";
 import CustomerInformation from "./containers/Customer/CustomerInformation";
 import { useTranslation } from "react-i18next";
+import LayzyLoad from './components/LayzyLoad'
 
-const Dashboard = React.lazy(() => import("./containers/Dashboard/Dashboard"));
-const About = React.lazy(() => import("./containers/About/About"));
+const Dashboard = LayzyLoad(import("./containers/Dashboard/Dashboard"))
+const About = LayzyLoad(import("./containers/About/About"))
 
 const routeStaff = t => {
   return [
