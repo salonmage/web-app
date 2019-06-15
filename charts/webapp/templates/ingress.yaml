@@ -1,4 +1,3 @@
-{{ if .Values.ingress.enabled }}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -9,14 +8,13 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
   annotations:
-    kubernetes.io/ingress.class: addon-http-application-routing
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: {{ .Release.Name }}.{{ .Values.ingress.basedomain }}
+  - host: {{ .Chart.domain }}
     http:
       paths:
       - path: /
         backend:
           serviceName: {{ template "fullname" . }}
           servicePort: {{ .Values.service.externalPort }}
-{{ end }}

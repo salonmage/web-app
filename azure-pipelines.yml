@@ -1,11 +1,12 @@
 trigger:
-- master
+- develop
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
   projectName: webapp
+  domain: 'hethongsalon.com'
   registryServerName: '$(registryName).azurecr.io'
   imageName: '$(projectName)'
 
@@ -15,13 +16,11 @@ steps:
 
 - bash: docker login $(registryServerName) -u $(registryLogin) -p $(registryPassword)
   displayName: 'docker login'
-  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
 
 - bash: |
     docker push $(registryServerName)/$(imageName):$(build.buildId)
     docker push $(registryServerName)/$(imageName):latest
   displayName: 'docker push'
-  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
 
 - task: HelmInstaller@0
   displayName: 'Install Helm'
@@ -33,4 +32,3 @@ steps:
 
 - bash: az acr helm push -n $(registryName) -u $(registryLogin) -p $(registryPassword) $(build.artifactStagingDirectory)/$(projectName)-$(build.buildId).tgz
   displayName: 'az acr helm push'
-  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
