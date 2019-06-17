@@ -6,8 +6,8 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import LazyLoad from "./components/LayzyLoad";
 
-const Register = LazyLoad(import("./containers/Login/Login"));
-const Login = LazyLoad(import("./containers/Register/Register"));
+const Register = LazyLoad(import("./containers/Register/Register"));
+const Login = LazyLoad(import("./containers/Login/Login"));
 const Page404 = LazyLoad(import("./containers/Page404/Page404"));
 const Page500 = LazyLoad(import("./containers/Page500/Page500"));
 const DefaultLayout = LazyLoad(import("./layouts/index"));

@@ -9,24 +9,81 @@ const CustomerInformation = () => {
     <>
       <h1>{t("Hồ sơ khách hàng")}</h1>
       <Form>
+
         <FormGroup>
-          <Label for="exampleEmail">Email</Label>
+          <Label for="name">{t("Họ và tên")}</Label>
           <Input
-            type="email"
-            name="email"
-            id="exampleEmail"
-            placeholder="with a placeholder"
+            type="text"
+            name="name"
+            id="name"
+            placeholder={t("Họ và tên")}
           />
         </FormGroup>
+
         <FormGroup>
-          <Label for="examplePassword">Password</Label>
+          <Label>{t("Giới tính")}</Label>
+          <FormGroup check>
+            <Label check>
+              <Input type="radio" name="radio1" /> {t('Nam')}
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input type="radio" name="radio1" /> {t('Nữ')}
+            </Label>
+          </FormGroup>
+        </FormGroup>
+        
+        <FormGroup>
+          <Label for="name">{t("Ngày sinh")}</Label>
           <Input
-            type="password"
-            name="password"
-            id="examplePassword"
-            placeholder="password placeholder"
+            type="text"
+            name="name"
+            id="name"
+            placeholder={t("Ngày sinh")}
           />
         </FormGroup>
+
+        <FormGroup>
+          <Label for="name">{t("Địa chỉ")}</Label>
+          <Input
+            type="text"
+            name="name"
+            id="name"
+            placeholder={t("Địa chỉ")}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label for="name">{t("Nghề nghiệp")}</Label>
+          <Input
+            type="text"
+            name="name"
+            id="name"
+            placeholder={t("Nghề nghiệp")}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label for="name">{t("SDT")}</Label>
+          <Input
+            type="text"
+            name="name"
+            id="name"
+            placeholder={t("SDT")}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label for="name">{t("Email/facebook")}</Label>
+          <Input
+            type="text"
+            name="name"
+            id="name"
+            placeholder={t("Email/facebook")}
+          />
+        </FormGroup>
+
         <FormGroup>
           <Label for="exampleSelect">Select</Label>
           <Input type="select" name="select" id="exampleSelect">
