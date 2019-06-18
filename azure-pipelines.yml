@@ -1,4 +1,5 @@
 trigger:
+- master
 - develop
 
 pool:
@@ -6,29 +7,60 @@ pool:
 
 variables:
   projectName: webapp
-  domain: 'hethongsalon.com'
-  registryServerName: '$(registryName).azurecr.io'
-  imageName: '$(projectName)'
+  productionDomain: $(PRODUCTION_DOMAIN)
+  stagingDomain: $(STAGING_DOMAIN)
+  registryServerName: $(REGISTRY_SERVER_NAME)
+  imageName: $(projectName)
 
 steps:
-- bash: docker build -f $(system.defaultWorkingDirectory)/Dockerfile -t $(registryServerName)/$(imageName):$(build.buildId) -t $(registryServerName)/$(imageName):latest $(system.defaultWorkingDirectory)
-  displayName: 'docker build'
+# - bash: docker build -f $(system.defaultWorkingDirectory)/Dockerfile -t $(REGISTRY_SERVER_NAME)/$(imageName):$(build.buildId) -t $(REGISTRY_SERVER_NAME)/$(imageName):latest $(system.defaultWorkingDirectory)
+#   displayName: 'docker build'
 
-- bash: docker login $(registryServerName) -u $(registryLogin) -p $(registryPassword)
-  displayName: 'docker login'
+# - bash: docker login $(REGISTRY_SERVER_NAME) -u $(REGISTRY_LOGIN) -p $(REGISTRY_PASSWORD)
+#   displayName: 'docker login'
 
-- bash: |
-    docker push $(registryServerName)/$(imageName):$(build.buildId)
-    docker push $(registryServerName)/$(imageName):latest
-  displayName: 'docker push'
+# - bash: |
+#     docker push $(REGISTRY_SERVER_NAME)/$(imageName):$(build.buildId)
+#     docker push $(REGISTRY_SERVER_NAME)/$(imageName):latest
+#   displayName: 'docker push'
 
-- task: HelmInstaller@0
-  displayName: 'Install Helm'
+# - task: HelmInstaller@0
+#   displayName: 'Install Helm'
+#   inputs:
+#     helmVersionToInstall: 2.14.1
+
+- task: HelmDeploy@0
+  displayName: 'Helm init'
   inputs:
-    helmVersion: 2.13.0
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceConnection: 'SalonMage - k8s'
+    command: init
+    # upgradetiller: true
+    waitForExecution: true
+    arguments: --client-only
 
-- bash: helm package --version $(build.buildId) --destination $(build.artifactStagingDirectory) $(system.defaultWorkingDirectory)/charts/$(projectName)
-  displayName: 'helm package'
+# - task: HelmDeploy@0
+#   displayName: 'Helm package'
+#   inputs:
+#     command: package
+#     chartPath: $(system.defaultWorkingDirectory)/charts/$(projectName)
+#     destination: $(Build.ArtifactStagingDirectory)
+#     arguments: --version $(build.buildId)
 
-- bash: az acr helm push -n $(registryName) -u $(registryLogin) -p $(registryPassword) $(build.artifactStagingDirectory)/$(projectName)-$(build.buildId).tgz
-  displayName: 'az acr helm push'
+# - task: HelmDeploy@0
+#   inputs:
+#     connectionType: 'Kubernetes Service Connection'
+#     kubernetesServiceConnection: 'SalonMage - k8s'
+#     namespace: 'salonmage'
+#     command: upgrade
+#     chartType: filepath
+#     chartPath: $(Build.ArtifactStagingDirectory)/$(projectName)-$(build.buildId).tgz
+#     releaseName: $(projectName)
+#     install: true
+#     overrideValues: image.repository=$(REGISTRY_SERVER_NAME)/$(imageName),image.tag=$(build.buildId),service.domain=$(PRODUCTION_DOMAIN)
+
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceConnection: 'SalonMage - k8s'
+    command: 'ls'
