@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import * as router from "react-router-dom";
 import { Container } from "reactstrap";
-
+import { useStore, useSelector, shallowEqual } from "react-redux";
 import {
   AppAside,
   AppFooter,
@@ -19,8 +19,6 @@ import {
 import useNav from "../../_nav";
 // routes config
 import useRoutes from "../../routes";
-import { connect } from "react-redux";
-import store from "../../redux/store";
 import { actionLogout } from "../../redux/reducers/userLogin/actions";
 import LayzyLoad from "../../components/LayzyLoad";
 
@@ -29,7 +27,8 @@ const DefaultFooter = LayzyLoad(import("./DefaultFooter"));
 const DefaultHeader = LayzyLoad(import("./DefaultHeader"));
 
 const DefaultLayout = props => {
-  const userLogin = props.userLogin;
+  const store = useStore();
+  const userLogin = useSelector(state => state.userLogin, shallowEqual);
 
   const navigation = useNav();
   const routes = useRoutes();
@@ -83,10 +82,4 @@ const DefaultLayout = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    userLogin: state.userLogin
-  };
-};
-
-export default connect(mapStateToProps)(DefaultLayout);
+export default DefaultLayout;

@@ -14,20 +14,19 @@ import {
   InputGroupText,
   Row
 } from "reactstrap";
-import store from "../../redux/store";
 import { actionLogin } from "../../redux/reducers/userLogin/actions";
-import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { useStore, useSelector, shallowEqual } from "react-redux";
 
-const Login = props => {
-  const userLogin = props.userLogin;
-
-  if (userLogin) return <Redirect to="/" />;
+const Login = () => {
+  const store = useStore();
+  const userLogin = useSelector(state => state.userLogin, shallowEqual);
 
   const handleLogin = () => {
     store.dispatch(actionLogin({ name: "Admin" }));
   };
-  
+
+  if (userLogin) return <Redirect to="/" />;
   return (
     <div className="app flex-row align-items-center">
       <Container>
@@ -115,10 +114,4 @@ const Login = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    userLogin: state.userLogin
-  };
-};
-
-export default connect(mapStateToProps)(Login);
+export default Login;
