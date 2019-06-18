@@ -16,14 +16,14 @@ import {
 } from "reactstrap";
 import { actionLogin } from "../../redux/reducers/userLogin/actions";
 import { Redirect } from "react-router-dom";
-import { useStore, useSelector, shallowEqual } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 
 const Login = () => {
-  const store = useStore();
+  const dispatch = useDispatch();
   const userLogin = useSelector(state => state.userLogin, shallowEqual);
 
   const handleLogin = () => {
-    store.dispatch(actionLogin({ name: "Admin" }));
+    dispatch(actionLogin({ name: "Admin" }));
   };
 
   if (userLogin) return <Redirect to="/" />;

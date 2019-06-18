@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import * as router from "react-router-dom";
 import { Container } from "reactstrap";
-import { useStore, useSelector, shallowEqual } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import {
   AppAside,
   AppFooter,
@@ -27,7 +27,7 @@ const DefaultFooter = LayzyLoad(import("./DefaultFooter"));
 const DefaultHeader = LayzyLoad(import("./DefaultHeader"));
 
 const DefaultLayout = props => {
-  const store = useStore();
+  const dispatch = useDispatch();
   const userLogin = useSelector(state => state.userLogin, shallowEqual);
 
   const navigation = useNav();
@@ -35,7 +35,7 @@ const DefaultLayout = props => {
 
   const signOut = e => {
     e.preventDefault();
-    store.dispatch(actionLogout());
+    dispatch(actionLogout());
   };
 
   if (!userLogin) return <Redirect to="/login" />;

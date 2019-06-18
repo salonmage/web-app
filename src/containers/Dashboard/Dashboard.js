@@ -1,19 +1,19 @@
 import React from "react";
 import { actionHello } from "../../redux/reducers/hello/actions";
 import { useTranslation } from "react-i18next";
-import { useStore, useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 
 const Dashboard = props => {
-  const store = useStore();
-  const hello = useSelector(state => state.hello, shallowEqual)
-  const helloSaga = useSelector(state => state.helloSaga, shallowEqual)
+  const dispatch = useDispatch();
+  const hello = useSelector(state => state.hello, shallowEqual);
+  const helloSaga = useSelector(state => state.helloSaga, shallowEqual);
 
   const handleChangeData = () => {
-    store.dispatch(actionHello());
+    dispatch(actionHello());
   };
 
   const handleChangeDataAsync = () => {
-    store.dispatch({ type: "INCREMENT_ASYNC" });
+    dispatch({ type: "INCREMENT_ASYNC" });
   };
 
   const { t, i18n } = useTranslation();
