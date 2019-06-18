@@ -14,4 +14,3 @@ spec:
     targetPort: {{ .Values.service.internalPort }}
   selector:
     app: {{ template "fullname" . }}
-  type: ClusterIP

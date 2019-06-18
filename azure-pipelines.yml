@@ -6,61 +6,76 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  projectName: webapp
-  productionDomain: $(PRODUCTION_DOMAIN)
-  stagingDomain: $(STAGING_DOMAIN)
-  registryServerName: $(REGISTRY_SERVER_NAME)
-  imageName: $(projectName)
+  projectName: 'salonmage'
+  serviceName: 'webapp'
+  imageRepo: '$(REGISTRY_SERVER_NAME)/$(projectName)-$(serviceName)'
 
 steps:
-# - bash: docker build -f $(system.defaultWorkingDirectory)/Dockerfile -t $(REGISTRY_SERVER_NAME)/$(imageName):$(build.buildId) -t $(REGISTRY_SERVER_NAME)/$(imageName):latest $(system.defaultWorkingDirectory)
-#   displayName: 'docker build'
+- script: |
+    echo "##vso[task.setvariable variable=shortCommitId]$(git rev-parse --short HEAD)"
+  displayName: 'Short commit ID'
 
-# - bash: docker login $(REGISTRY_SERVER_NAME) -u $(REGISTRY_LOGIN) -p $(REGISTRY_PASSWORD)
-#   displayName: 'docker login'
+- script: |
+    echo "##vso[task.setvariable variable=imageTag]prod-$(shortCommitId)"
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: 'Image Tag for Production'
 
-# - bash: |
-#     docker push $(REGISTRY_SERVER_NAME)/$(imageName):$(build.buildId)
-#     docker push $(REGISTRY_SERVER_NAME)/$(imageName):latest
-#   displayName: 'docker push'
+- script: |
+    echo "##vso[task.setvariable variable=imageTag]stag-$(shortCommitId)"
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  displayName: 'Image Tag for Staging'
 
-# - task: HelmInstaller@0
-#   displayName: 'Install Helm'
-#   inputs:
-#     helmVersionToInstall: 2.14.1
+- bash: |
+    docker build \
+    -f $(system.defaultWorkingDirectory)/Dockerfile \
+    -t $(imageRepo):$(imageTag) \
+    $(system.defaultWorkingDirectory)
+  condition: succeeded()
+  displayName: 'Docker build'
 
-- task: HelmDeploy@0
-  displayName: 'Helm init'
+- bash: docker login $(REGISTRY_SERVER_NAME) -u $(REGISTRY_LOGIN) -p $(REGISTRY_PASSWORD)
+  condition: succeeded()
+  displayName: 'Docker login'
+
+- bash: docker push $(imageRepo):$(imageTag)
+  condition: succeeded()
+  displayName: 'Docker push'
+
+- task: HelmInstaller@0
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'SalonMage - k8s'
-    command: init
-    # upgradetiller: true
-    waitForExecution: true
-    arguments: --client-only
+    helmVersion: 2.14.1
+  condition: succeeded()
+  displayName: 'Install helm'
 
-# - task: HelmDeploy@0
-#   displayName: 'Helm package'
-#   inputs:
-#     command: package
-#     chartPath: $(system.defaultWorkingDirectory)/charts/$(projectName)
-#     destination: $(Build.ArtifactStagingDirectory)
-#     arguments: --version $(build.buildId)
-
-# - task: HelmDeploy@0
-#   inputs:
-#     connectionType: 'Kubernetes Service Connection'
-#     kubernetesServiceConnection: 'SalonMage - k8s'
-#     namespace: 'salonmage'
-#     command: upgrade
-#     chartType: filepath
-#     chartPath: $(Build.ArtifactStagingDirectory)/$(projectName)-$(build.buildId).tgz
-#     releaseName: $(projectName)
-#     install: true
-#     overrideValues: image.repository=$(REGISTRY_SERVER_NAME)/$(imageName),image.tag=$(build.buildId),service.domain=$(PRODUCTION_DOMAIN)
+- bash: helm package --version $(build.buildId) --destination $(build.artifactStagingDirectory) $(system.defaultWorkingDirectory)/charts/$(serviceName)
+  condition: succeeded()
+  displayName: 'Helm package'
 
 - task: HelmDeploy@0
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'SalonMage - k8s'
-    command: 'ls'
+    kubernetesServiceConnection: 'DigitalOccean - K8s'
+    namespace: 'salonmage'
+    command: 'upgrade'
+    chartType: 'FilePath'
+    releaseName: '$(projectName)-$(serviceName)-prod'
+    chartPath: '$(Build.ArtifactStagingDirectory)/$(serviceName)-$(build.buildId).tgz'
+    overrideValues: image.imagePullSecrets=$(IMAGE_PULL_SECRETS),image.repository=$(imageRepo),image.tag=$(imageTag),ingress.domain=$(PRODUCTION_DOMAIN)
+    install: true
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: 'Helm update on Production'
+
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceConnection: 'DigitalOccean - K8s'
+    namespace: 'salonmage'
+    command: 'upgrade'
+    chartType: 'FilePath'
+    releaseName: '$(projectName)-$(serviceName)-stag'
+    chartPath: '$(Build.ArtifactStagingDirectory)/$(serviceName)-$(build.buildId).tgz'
+    overrideValues: image.imagePullSecrets=$(IMAGE_PULL_SECRETS),image.repository=$(imageRepo),image.tag=$(imageTag),ingress.domain=$(STAGING_DOMAIN)
+    install: true
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  displayName: 'Helm update on Staging'
+  

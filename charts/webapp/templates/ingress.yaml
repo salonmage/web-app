@@ -11,7 +11,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: {{ .Values.service.domain }}
+  - host: {{ .Values.ingress.domain }}
     http:
       paths:
       - path: /
