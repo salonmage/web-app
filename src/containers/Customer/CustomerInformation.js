@@ -1,24 +1,19 @@
 import React from "react";
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Row,
-  Col
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Row, Col } from "reactstrap";
 import { useTranslation } from "react-i18next";
 
 const CustomerInformation = () => {
   const { t } = useTranslation();
 
+  function handleSubmitForm(e) {
+    e.preventDefault();
+  }
+
   return (
     <Row>
       <Col>
         <h1>{t("Hồ sơ khách hàng")}</h1>
-        <Form>
+        <Form method="POST" onSubmit={handleSubmitForm}>
           <FormGroup>
             <Label for="name">{t("Họ và tên")}</Label>
             <Input
@@ -89,69 +84,81 @@ const CustomerInformation = () => {
           </FormGroup>
 
           <FormGroup>
-            <Label for="exampleSelect">Select</Label>
-            <Input type="select" name="select" id="exampleSelect">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleSelectMulti">Select Multiple</Label>
+            <Label for="name">{t("Ngày thăm khám")}</Label>
             <Input
-              type="select"
-              name="selectMulti"
-              id="exampleSelectMulti"
-              multiple
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
+              type="text"
+              name="name"
+              id="name"
+              placeholder={t("Ngày thăm khám")}
+            />
           </FormGroup>
+
           <FormGroup>
-            <Label for="exampleText">Text Area</Label>
+            <Label for="name">{t("Biết thẩm mỹ Sbeauty qua")}</Label>
+            <Input
+              type="text"
+              name="name"
+              id="name"
+              placeholder={t("Biết thẩm mỹ Sbeauty qua")}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="name">{t("Biết thẩm mỹ Sbeauty qua")}</Label>
+            <Input
+              type="text"
+              name="name"
+              id="name"
+              placeholder={t("Biết thẩm mỹ Sbeauty qua")}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="name">{t("Tình trạng da hiện tại")}</Label>
             <Input type="textarea" name="text" id="exampleText" />
           </FormGroup>
+
           <FormGroup>
-            <Label for="exampleFile">File</Label>
-            <Input type="file" name="file" id="exampleFile" />
-            <FormText color="muted">
-              This is some placeholder block-level help text for the above
-              input. It's a bit lighter and easily wraps to a new line.
-            </FormText>
+            <Label for="exampleSelect">{t("Loại da")}</Label>
+            <Input type="select" name="select" id="exampleSelect">
+              <option>Da dầu</option>
+              <option>Da khô</option>
+              <option>Da hỗn hợp</option>
+            </Input>
           </FormGroup>
-          <FormGroup tag="fieldset">
-            <legend>Radio Buttons</legend>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio1" /> Option one is this and
-                that—be sure to include why it's great
-              </Label>
-            </FormGroup>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio1" /> Option two can be something
-                else and selecting it will deselect option one
-              </Label>
-            </FormGroup>
-            <FormGroup check disabled>
-              <Label check>
-                <Input type="radio" name="radio1" disabled /> Option three is
-                disabled
-              </Label>
-            </FormGroup>
+
+          <FormGroup>
+            <Label for="exampleSelect">{t("Tuýp da")}</Label>
+            <Input type="select" name="select" id="exampleSelect">
+              <option>Thâm đen</option>
+              <option>Thâm đỏ</option>
+              <option>Hỗn hợp</option>
+            </Input>
           </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input type="checkbox" /> Check me out
-            </Label>
+
+          <FormGroup>
+            <Label for="name">{t("Tiền sử")}</Label>
+            <Input type="textarea" name="text" id="exampleText" />
           </FormGroup>
-          <Button color="primary">{t("Save Changes")}</Button>
+
+          <FormGroup>
+            <Label for="name">{t("Mong muốn khách hàng")}</Label>
+            <Input type="textarea" name="text" id="exampleText" />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="name">{t("Dịch vụ triển khai tại Sbeauty")}</Label>
+            <Input type="textarea" name="text" id="exampleText" />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="name">{t("Sản phẩm sử dụng tại nhà")}</Label>
+            <Input type="textarea" name="text" id="exampleText" />
+          </FormGroup>
+
+          <FormGroup>
+            <Button color="primary">{t("Save Changes")}</Button>
+          </FormGroup>
         </Form>
       </Col>
     </Row>

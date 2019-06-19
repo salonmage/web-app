@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div>
       <h1>About</h1>
-      <h3>{t('Welcome to React')}</h3>
+      <h3>{t('Giới thiệu về Sbeauty')}</h3>
     </div>
   )
 }
