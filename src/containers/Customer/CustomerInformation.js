@@ -104,16 +104,6 @@ const CustomerInformation = () => {
           </FormGroup>
 
           <FormGroup>
-            <Label for="name">{t("Biết thẩm mỹ Sbeauty qua")}</Label>
-            <Input
-              type="text"
-              name="name"
-              id="name"
-              placeholder={t("Biết thẩm mỹ Sbeauty qua")}
-            />
-          </FormGroup>
-
-          <FormGroup>
             <Label for="name">{t("Tình trạng da hiện tại")}</Label>
             <Input type="textarea" name="text" id="exampleText" />
           </FormGroup>
