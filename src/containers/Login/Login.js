@@ -14,7 +14,7 @@ import {
   InputGroupText,
   Row
 } from "reactstrap";
-import { actionLogin } from "../../redux/reducers/userLogin/actions";
+import { actionLogin } from "../../redux/userLogin/actions";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 

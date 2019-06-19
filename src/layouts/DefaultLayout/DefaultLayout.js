@@ -19,7 +19,7 @@ import {
 import useNav from "../../_nav";
 // routes config
 import useRoutes from "../../routes";
-import { actionLogout } from "../../redux/reducers/userLogin/actions";
+import { actionLogout } from "../../redux/userLogin/actions";
 import LayzyLoad from "../../components/LayzyLoad";
 
 const DefaultAside = LayzyLoad(import("./DefaultAside"));

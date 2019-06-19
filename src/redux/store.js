@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import reducers from "./reducers/index";
-import rootSagas from "./sagas/index";
+import reducers from "./rootReducers";
+import rootSagas from "./rootSagas";
 
 const loadState = () => {
   try {
