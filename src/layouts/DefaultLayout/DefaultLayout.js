@@ -15,9 +15,7 @@ import {
   AppBreadcrumb2 as AppBreadcrumb,
   AppSidebarNav2 as AppSidebarNav
 } from "@coreui/react";
-// sidebar nav config
 import useNav from "../../_nav";
-// routes config
 import useRoutes from "../../routes";
 import { actionLogout } from "../../redux/userLogin/actions";
 import LayzyLoad from "../../components/LayzyLoad";
@@ -67,7 +65,7 @@ const DefaultLayout = props => {
                   />
                 ) : null;
               })}
-              <Redirect from="/" to="/dashboard" />
+              <Redirect from="/" to="/customer-information" />
             </Switch>
           </Container>
         </main>

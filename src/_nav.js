@@ -4,26 +4,13 @@ const navStaff = (t) => {
   return {
     items: [
       {
-        name: t('Dashboard'),
-        url: "/dashboard",
-        icon: "icon-speedometer",
-        badge: {
-          variant: "info",
-          text: "NEW"
-        }
-      },
-      {
-        name: t('About'),
-        url: "/about",
-        icon: "icon-drop",
-        badge: {
-          variant: "info",
-          text: "NEW"
-        }
-      },
-      {
         name: t('Hồ sơ khách hàng'),
         url: "/customer-information",
+        icon: "icon-drop"
+      },
+      {
+        name: t('Phác đồ điều trị'),
+        url: "/treatment-regimen",
         icon: "icon-drop"
       }
     ]
