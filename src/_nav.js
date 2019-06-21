@@ -4,9 +4,37 @@ const navStaff = (t) => {
   return {
     items: [
       {
-        name: t('Hồ sơ khách hàng'),
-        url: "/customer-information",
-        icon: "icon-drop"
+        name: t('QL khách hàng'),
+        icon: 'icon-note',
+        children: [
+          {
+            name: t('Thêm khách hàng'),
+            url: '/add-customer',
+          },
+          {
+            name: t('DS khách hàng'),
+            url: '/list-customer',
+          },
+          {
+            name: t('Hồ sơ khách hàng'),
+            url: "/customer-information",
+            icon: "icon-drop"
+          }
+        ],
+      },
+      {
+        name: t('QL nhân viên'),
+        icon: 'icon-note',
+        children: [
+          {
+            name: t('Thêm nhân viên'),
+            url: '/add-employees',
+          },
+          {
+            name: t('DS nhân viên'),
+            url: '/list-employees',
+          }
+        ],
       },
       {
         name: t('Phác đồ điều trị'),
