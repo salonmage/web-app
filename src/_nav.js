@@ -16,9 +16,8 @@ const navStaff = (t) => {
             url: '/list-customer',
           },
           {
-            name: t('Hồ sơ khách hàng'),
-            url: "/customer-information",
-            icon: "icon-drop"
+            name: t('Phác đồ điều trị'),
+            url: "/treatment-regimen",
           }
         ],
       },
@@ -35,11 +34,6 @@ const navStaff = (t) => {
             url: '/list-employees',
           }
         ],
-      },
-      {
-        name: t('Phác đồ điều trị'),
-        url: "/treatment-regimen",
-        icon: "icon-drop"
       }
     ]
   }

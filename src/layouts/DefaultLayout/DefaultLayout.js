@@ -4,7 +4,6 @@ import * as router from "react-router-dom";
 import { Container } from "reactstrap";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import {
-  AppAside,
   AppFooter,
   AppHeader,
   AppSidebar,
@@ -20,7 +19,6 @@ import useRoutes from "../../routes";
 import { actionLogout } from "../../redux/userLogin/actions";
 import LayzyLoad from "../../components/LayzyLoad";
 
-const DefaultAside = LayzyLoad(import("./DefaultAside"));
 const DefaultFooter = LayzyLoad(import("./DefaultFooter"));
 const DefaultHeader = LayzyLoad(import("./DefaultHeader"));
 
@@ -69,9 +67,9 @@ const DefaultLayout = props => {
             </Switch>
           </Container>
         </main>
-        <AppAside fixed>
+        {/* <AppAside fixed>
           <DefaultAside />
-        </AppAside>
+        </AppAside> */}
       </div>
       <AppFooter>
         <DefaultFooter />

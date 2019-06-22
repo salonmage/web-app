@@ -12,7 +12,7 @@ const routeStaff = t => {
   return [
     { path: "/", exact: true, name: t("Home") },
     {
-      path: "/customer-information",
+      path: "/customer-information/:customerId",
       name: t("Hồ sơ khách hàng"),
       component: CustomerInformation
     },
