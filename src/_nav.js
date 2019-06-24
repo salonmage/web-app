@@ -30,6 +30,58 @@ const navStaff = (t) => {
             url: '/list-employees',
           }
         ],
+      },
+      {
+        name: t('Lịch hẹn'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Thu ngân'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('DS hóa đơn'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Báo cáo theo ngày'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Hoa hồng nhân viên'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Nhập xuất kho hàng'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Thông tin chung'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Quản lý chi nhánh'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('DS dịch vụ'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('DS sản phẩm'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Quản lý tồn kho'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Hoa hồng nhân viên'),
+        icon: 'icon-note',
+      },
+      {
+        name: t('Thẻ thành viên'),
+        icon: 'icon-note',
       }
     ]
   }

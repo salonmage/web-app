@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
+import DatePicker from "react-datepicker";
 
 function CustomerAdd() {
   const { t } = useTranslation();
+  const [birthday, setBirthday] = useState(() => new Date());
 
   function handleSubmitForm(e) {
     e.preventDefault();
   }
-  
+
+  function handleChangeBirthday(birthday) {
+    setBirthday(birthday);
+  }
+
   return (
     <>
       <h1>{t("Thêm khách hàng")}</h1>
@@ -32,19 +38,15 @@ function CustomerAdd() {
           </FormGroup>
           <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio1" /> {t("Nữ")}
+              <Input type="radio" name="radio1" defaultChecked={true} />{" "}
+              {t("Nữ")}
             </Label>
           </FormGroup>
         </FormGroup>
 
         <FormGroup>
-          <Label for="name">{t("Ngày sinh")}</Label>
-          <Input
-            type="text"
-            name="name"
-            id="name"
-            placeholder={t("Ngày sinh")}
-          />
+          <Label for="name">{t("Ngày sinh")}</Label> <br/>
+          <DatePicker selected={birthday} onChange={handleChangeBirthday} className="form-control" />
         </FormGroup>
 
         <FormGroup>
@@ -63,8 +65,8 @@ function CustomerAdd() {
         </FormGroup>
 
         <FormGroup>
-          <Label for="name">{t("SDT")}</Label>
-          <Input type="text" name="name" id="name" placeholder={t("SDT")} />
+          <Label for="name">{t("SĐT")}</Label>
+          <Input type="text" name="name" id="name" placeholder={t("SĐT")} />
         </FormGroup>
 
         <FormGroup>
@@ -78,16 +80,6 @@ function CustomerAdd() {
         </FormGroup>
 
         <FormGroup>
-          <Label for="name">{t("Ngày thăm khám")}</Label>
-          <Input
-            type="text"
-            name="name"
-            id="name"
-            placeholder={t("Ngày thăm khám")}
-          />
-        </FormGroup>
-
-        <FormGroup>
           <Label for="name">{t("Biết thẩm mỹ Sbeauty qua")}</Label>
           <Input
             type="text"
@@ -95,49 +87,6 @@ function CustomerAdd() {
             id="name"
             placeholder={t("Biết thẩm mỹ Sbeauty qua")}
           />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="name">{t("Tình trạng da hiện tại")}</Label>
-          <Input type="textarea" name="text" id="exampleText" />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="exampleSelect">{t("Loại da")}</Label>
-          <Input type="select" name="select" id="exampleSelect">
-            <option>Da dầu</option>
-            <option>Da khô</option>
-            <option>Da hỗn hợp</option>
-          </Input>
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="exampleSelect">{t("Tuýp da")}</Label>
-          <Input type="select" name="select" id="exampleSelect">
-            <option>Thâm đen</option>
-            <option>Thâm đỏ</option>
-            <option>Hỗn hợp</option>
-          </Input>
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="name">{t("Tiền sử")}</Label>
-          <Input type="textarea" name="text" id="exampleText" />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="name">{t("Mong muốn khách hàng")}</Label>
-          <Input type="textarea" name="text" id="exampleText" />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="name">{t("Dịch vụ triển khai tại Sbeauty")}</Label>
-          <Input type="textarea" name="text" id="exampleText" />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="name">{t("Sản phẩm sử dụng tại nhà")}</Label>
-          <Input type="textarea" name="text" id="exampleText" />
         </FormGroup>
 
         <FormGroup>

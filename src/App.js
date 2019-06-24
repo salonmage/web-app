@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
+import "react-datepicker/dist/react-datepicker.css";
 import history from "./common/history";
 import { Provider } from "react-redux";
 import store from "./redux/store";
