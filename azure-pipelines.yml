@@ -78,4 +78,8 @@ steps:
     install: true
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   displayName: 'Helm update on Staging'
-  
+
+- script: |
+    curl -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/purge_cache" -H "X-Auth-Email:$CF_EMAIL" -H "X-Auth-Key:$CF_API_KEY" -H "Content-Type:application/json" --data '{"purge_everything":true}'
+  condition: succeeded()
+  displayName: 'CloudFlare Purge Cache'
