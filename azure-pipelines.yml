@@ -54,7 +54,7 @@ steps:
 - task: HelmDeploy@0
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'DigitalOccean - K8s'
+    kubernetesServiceConnection: 'my-k8s'
     namespace: 'salonmage'
     command: 'upgrade'
     chartType: 'FilePath'
@@ -68,7 +68,7 @@ steps:
 - task: HelmDeploy@0
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'DigitalOccean - K8s'
+    kubernetesServiceConnection: 'my-k8s'
     namespace: 'salonmage'
     command: 'upgrade'
     chartType: 'FilePath'
