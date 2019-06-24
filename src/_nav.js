@@ -58,6 +58,7 @@ const navStaff = (t) => {
       {
         name: t('Thông tin chung'),
         icon: 'icon-note',
+        url: '/thong-tin-chung'
       },
       {
         name: t('Quản lý chi nhánh'),

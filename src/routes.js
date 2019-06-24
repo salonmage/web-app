@@ -7,6 +7,7 @@ const CustomerList = LayzyLoad(import("./containers/Customers/CustomerList"));
 const CustomerAdd = LayzyLoad(import("./containers/Customers/CustomerAdd"));
 const EmployeesList = LayzyLoad(import("./containers/Employees/EmployeesList"));
 const EmployeesAdd = LayzyLoad(import("./containers/Employees/EmployeesAdd"));
+const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
 
 const RedirectHome = () => {
   return <Redirect to="/list-customer" />;
@@ -34,7 +35,12 @@ const routeStaff = t => {
       path: "/add-employees",
       name: t("Thêm nhân viên"),
       component: EmployeesAdd
-    }
+    },
+    {
+      path: "/thong-tin-chung",
+      name: t("Thông tin chung"),
+      component: GeneralInformation
+    },
   ];
 };
 

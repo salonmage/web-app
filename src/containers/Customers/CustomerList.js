@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Toast, ToastBody, ToastHeader, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
+import img from '../../assets/img/2.jpg'
 
 function CustomerList() {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ function CustomerList() {
               <div className="flexItem">
                 <img
                   className="sbtListCustomerAvatar"
-                  src="https://scontent.fhan5-3.fna.fbcdn.net/v/t1.0-1/p160x160/64777436_2202017723441733_6414231204979015680_n.jpg?_nc_cat=111&_nc_oc=AQlxyCQwQJI6ZUJv4QL5hi1yN8fG1pyGuh-jXTE7MPv6_B0J_UoDZ8qZOTitLsMt-Rw&_nc_ht=scontent.fhan5-3.fna&oh=9f5ccbe06c13c9799e3dd38e4134fa1f&oe=5D79EF89"
+                  src={img}
                   alt=""
                 />
               </div>
@@ -34,7 +35,7 @@ function CustomerList() {
               <div className="flexItem">
                 <img
                   className="sbtListCustomerAvatar"
-                  src="https://scontent.fhan5-3.fna.fbcdn.net/v/t1.0-1/p160x160/64777436_2202017723441733_6414231204979015680_n.jpg?_nc_cat=111&_nc_oc=AQlxyCQwQJI6ZUJv4QL5hi1yN8fG1pyGuh-jXTE7MPv6_B0J_UoDZ8qZOTitLsMt-Rw&_nc_ht=scontent.fhan5-3.fna&oh=9f5ccbe06c13c9799e3dd38e4134fa1f&oe=5D79EF89"
+                  src={img}
                   alt=""
                 />
               </div>
@@ -53,7 +54,7 @@ function CustomerList() {
               <div className="flexItem">
                 <img
                   className="sbtListCustomerAvatar"
-                  src="https://scontent.fhan5-3.fna.fbcdn.net/v/t1.0-1/p160x160/64777436_2202017723441733_6414231204979015680_n.jpg?_nc_cat=111&_nc_oc=AQlxyCQwQJI6ZUJv4QL5hi1yN8fG1pyGuh-jXTE7MPv6_B0J_UoDZ8qZOTitLsMt-Rw&_nc_ht=scontent.fhan5-3.fna&oh=9f5ccbe06c13c9799e3dd38e4134fa1f&oe=5D79EF89"
+                  src={img}
                   alt=""
                 />
               </div>
@@ -87,7 +88,7 @@ function CustomerList() {
             <div>
               <img
                 className="sbtListCustomerImg"
-                src="https://scontent.fhan5-3.fna.fbcdn.net/v/t1.0-1/p160x160/64777436_2202017723441733_6414231204979015680_n.jpg?_nc_cat=111&_nc_oc=AQlxyCQwQJI6ZUJv4QL5hi1yN8fG1pyGuh-jXTE7MPv6_B0J_UoDZ8qZOTitLsMt-Rw&_nc_ht=scontent.fhan5-3.fna&oh=9f5ccbe06c13c9799e3dd38e4134fa1f&oe=5D79EF89"
+                src={img}
                 alt=""
               />
             </div>
