@@ -20,3 +20,31 @@ select,
 textarea {
   font-size: 16px !important;
 }
+
+.sbtListCustomer {
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.sbtListCustomerAvatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.sbtListCustomerImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.sbtListCustomerSearch {
+  margin-bottom: 0.75rem;
+}
