@@ -8,6 +8,9 @@ const CustomerAdd = LayzyLoad(import("./containers/Customers/CustomerAdd"));
 const EmployeesList = LayzyLoad(import("./containers/Employees/EmployeesList"));
 const EmployeesAdd = LayzyLoad(import("./containers/Employees/EmployeesAdd"));
 const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
+const AppointmentSchedule = LayzyLoad(import("./containers/AppointmentSchedule"));
+const Cashier = LayzyLoad(import("./containers/Cashier"));
+const BillList = LayzyLoad(import("./containers/BillList"));
 
 const RedirectHome = () => {
   return <Redirect to="/list-customer" />;
@@ -40,6 +43,21 @@ const routeStaff = t => {
       path: "/thong-tin-chung",
       name: t("Thông tin chung"),
       component: GeneralInformation
+    },
+    {
+      path: "/lich-hen",
+      name: t("Lịch hẹn"),
+      component: AppointmentSchedule
+    },
+    {
+      path: "/thu-ngan",
+      name: t("Thu ngân"),
+      component: Cashier
+    },
+    {
+      path: "/danh-sach-hoa-don",
+      name: t("Danh sách hóa đơn"),
+      component: BillList
     },
   ];
 };
