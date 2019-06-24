@@ -14,10 +14,6 @@ const navStaff = (t) => {
           {
             name: t('DS khách hàng'),
             url: '/list-customer',
-          },
-          {
-            name: t('Phác đồ điều trị'),
-            url: "/treatment-regimen",
           }
         ],
       },

@@ -63,7 +63,7 @@ const DefaultLayout = props => {
                   />
                 ) : null;
               })}
-              <Redirect from="/" to="/customer-information" />
+              <Redirect to="/404" />
             </Switch>
           </Container>
         </main>

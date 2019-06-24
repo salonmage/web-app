@@ -1,16 +1,24 @@
+import React from 'react'
 import { useTranslation } from "react-i18next";
-import LayzyLoad from './components/LayzyLoad'
+import LayzyLoad from "./components/LayzyLoad";
+import { Redirect } from "react-router-dom";
 
-const CustomerInformation = LayzyLoad(import("./containers/Customers/CustomerInformation"))
-const CustomerList = LayzyLoad(import("./containers/Customers/CustomerList"))
-const CustomerAdd = LayzyLoad(import("./containers/Customers/CustomerAdd"))
-const TreatmentRegimen = LayzyLoad(import("./containers/TreatmentRegimen"))
-const EmployeesList = LayzyLoad(import("./containers/Employees/EmployeesList"))
-const EmployeesAdd = LayzyLoad(import("./containers/Employees/EmployeesAdd"))
+const CustomerInformation = LayzyLoad(
+  import("./containers/Customers/CustomerInformation")
+);
+const CustomerList = LayzyLoad(import("./containers/Customers/CustomerList"));
+const CustomerAdd = LayzyLoad(import("./containers/Customers/CustomerAdd"));
+const TreatmentRegimen = LayzyLoad(import("./containers/TreatmentRegimen"));
+const EmployeesList = LayzyLoad(import("./containers/Employees/EmployeesList"));
+const EmployeesAdd = LayzyLoad(import("./containers/Employees/EmployeesAdd"));
+
+const RedirectHome = () => {
+  return <Redirect to="/list-customer" />;
+};
 
 const routeStaff = t => {
   return [
-    { path: "/", exact: true, name: t("Home") },
+    { path: "/", exact: true, name: t("Home"), component: RedirectHome },
     {
       path: "/customer-information/:customerId",
       name: t("Hồ sơ khách hàng"),
@@ -27,18 +35,18 @@ const routeStaff = t => {
       component: CustomerAdd
     },
     {
-      path: "/treatment-regimen",
+      path: "/phac-do-dieu-tri",
       name: t("Phác đồ điều trị"),
       component: TreatmentRegimen
     },
     {
-      path: '/list-employees',
-      name: t('Danh sách nhân viên'),
+      path: "/list-employees",
+      name: t("Danh sách nhân viên"),
       component: EmployeesList
     },
     {
-      path: '/add-employees',
-      name: t('Thêm nhân viên'),
+      path: "/add-employees",
+      name: t("Thêm nhân viên"),
       component: EmployeesAdd
     }
   ];
