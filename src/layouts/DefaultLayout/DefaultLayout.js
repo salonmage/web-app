@@ -4,7 +4,7 @@ import * as router from "react-router-dom";
 import { Container } from "reactstrap";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import {
-  AppFooter,
+  // AppFooter,
   AppHeader,
   AppSidebar,
   AppSidebarFooter,
@@ -19,7 +19,7 @@ import useRoutes from "../../routes";
 import { actionLogout } from "../../redux/userLogin/actions";
 import LayzyLoad from "../../components/LayzyLoad";
 
-const DefaultFooter = LayzyLoad(import("./DefaultFooter"));
+// const DefaultFooter = LayzyLoad(import("./DefaultFooter"));
 const DefaultHeader = LayzyLoad(import("./DefaultHeader"));
 
 const DefaultLayout = props => {
@@ -71,9 +71,9 @@ const DefaultLayout = props => {
           <DefaultAside />
         </AppAside> */}
       </div>
-      <AppFooter>
+      {/* <AppFooter>
         <DefaultFooter />
-      </AppFooter>
+      </AppFooter> */}
     </div>
   );
 };
