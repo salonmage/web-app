@@ -87,11 +87,6 @@ const navStaff = (t) => {
         url: '/quan-ly-ton-kho'
       },
       {
-        name: t('Hoa hồng nhân viên'),
-        icon: 'icon-note',
-        url: '/hoa-hong-nhan-vien'
-      },
-      {
         name: t('Thẻ thành viên'),
         icon: 'icon-note',
         url: '/the-thanh-vien'
