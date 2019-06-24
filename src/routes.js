@@ -19,6 +19,8 @@ const InventoryManagement = LayzyLoad(import("./containers/InventoryManagement")
 const BranchManagement = LayzyLoad(import("./containers/BranchManagement"));
 const Services = LayzyLoad(import("./containers/Services"));
 const InboundOutbound = LayzyLoad(import("./containers/InboundOutbound"));
+const ProductAdd = LayzyLoad(import("./containers/Products/add"));
+const AddService = LayzyLoad(import("./containers/Services/add"));
 
 const RedirectHome = () => {
   return <Redirect to="/list-customer" />;
@@ -106,6 +108,16 @@ const routeStaff = t => {
       path: "/nhap-xuat-kho-hang",
       name: t("Nhập xuất kho hàng"),
       component: InboundOutbound
+    },
+    {
+      path: "/them-san-pham",
+      name: t("Thêm sản phẩm"),
+      component: ProductAdd
+    },
+    {
+      path: "/them-dich-vu",
+      name: t("Thêm dịch vụ"),
+      component: AddService
     },
   ];
 };

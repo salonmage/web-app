@@ -1,19 +1,19 @@
 import React from "react";
-import { Table } from "reactstrap";
+import { Table, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
+import img from '../../assets/img/2.jpg'
 
 function EmployeesList() {
   const { t } = useTranslation();
   return (
     <>
-      <Table bordered>
+      <Input type="text" placeholder={t('Tìm kiếm nhân viên')} />
+      <br />
+      <Table bordered responsive>
         <thead>
           <tr>
             <th>{t("Ảnh")}</th>
             <th>{t("Họ tên")}</th>
-            <th>{t("Chức danh")}</th>
-            <th>{t("Nhóm nhân viên")}</th>
-            <th>{t("Chi nhánh")}</th>
             <th>{t("Điện thoại")}</th>
             <th>{t("Email")}</th>
             <th>{t("Trạng thái")}</th>
@@ -22,11 +22,8 @@ function EmployeesList() {
         </thead>
         <tbody>
           <tr>
-            <td></td>
+            <td><img src={img} width="50" height="50" alt="" /></td>
             <td>Bùi Văn Hữu</td>
-            <td>Nhân viên</td>
-            <td>Nhóm 1</td>
-            <td>Sbeauty1</td>
             <td>0337639659</td>
             <td>buivanhuu2017@gmail.com</td>
             <td>active</td>

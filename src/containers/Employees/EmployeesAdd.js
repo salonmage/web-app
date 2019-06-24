@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 function EmployeesAdd() {
   const { t } = useTranslation();
+  
   return (
     <>
       <h1>{t("Thêm nhân viên")}</h1>

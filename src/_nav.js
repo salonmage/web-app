@@ -32,6 +32,34 @@ const navStaff = (t) => {
         ],
       },
       {
+        name: t('QL sản phẩm'),
+        icon: 'icon-note',
+        children: [
+          {
+            name: t('Thêm sản phẩm'),
+            url: '/them-san-pham',
+          },
+          {
+            name: t('DS sản phẩm'),
+            url: '/danh-sach-san-pham',
+          }
+        ]
+      },
+      {
+        name: t('QL dịch vụ'),
+        icon: 'icon-note',
+        children: [
+          {
+            name: t('Thêm dịch vụ'),
+            url: '/them-dich-vu',
+          },
+          {
+            name: t('DS dịch vụ'),
+            url: '/danh-sach-dich-vu'
+          }
+        ]
+      },
+      {
         name: t('Lịch hẹn'),
         icon: 'icon-note',
         url: '/lich-hen'
@@ -47,17 +75,17 @@ const navStaff = (t) => {
         url: '/danh-sach-hoa-don'
       },
       {
-        name: t('Báo cáo theo ngày'),
+        name: t('Báo cáo'),
         icon: 'icon-note',
         url: '/bao-cao-theo-ngay'
       },
       {
-        name: t('Hoa hồng nhân viên'),
+        name: t('Hoa hồng'),
         icon: 'icon-note',
         url: '/hoa-hong-nhan-vien'
       },
       {
-        name: t('Nhập xuất kho hàng'),
+        name: t('Xuất nhập kho'),
         icon: 'icon-note',
         url: '/nhap-xuat-kho-hang'
       },
@@ -70,16 +98,6 @@ const navStaff = (t) => {
         name: t('Quản lý chi nhánh'),
         icon: 'icon-note',
         url: '/quan-ly-chi-nhanh'
-      },
-      {
-        name: t('DS dịch vụ'),
-        icon: 'icon-note',
-        url: '/danh-sach-dich-vu'
-      },
-      {
-        name: t('DS sản phẩm'),
-        icon: 'icon-note',
-        url: '/danh-sach-san-pham'
       },
       {
         name: t('Quản lý tồn kho'),
