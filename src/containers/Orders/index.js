@@ -28,8 +28,8 @@ function Orders() {
                 <Input type="text" placeholder={t("Tìm khách")} />
               </CardSubtitle>
               <CardText>
-                <div>Họ và tên: Bùi Văn Hữu</div>
-                <div>SĐT: 0337639659</div>
+                <span>Họ và tên: Bùi Văn Hữu</span> <br />
+                <span>SĐT: 0337639659</span>
               </CardText>
             </CardBody>
           </Card>
@@ -62,27 +62,27 @@ function Orders() {
                 <Input type="text" placeholder={t("Tìm kiếm sản phẩm")} />
               </CardSubtitle>
               <CardText>
-                <div className="media ordersMedia">
+                <span className="media ordersMedia">
                   <img src={img} className="mr-3" alt="" width="100" height="100" />
-                  <div className="media-body">
-                    <h5 className="mt-0">Chăm sóc da cơ bản</h5>
-                    <div>140.000</div>
-                  </div>
-                </div>
-                <div className="media ordersMedia">
+                  <span className="media-body">
+                    <span className="mt-0">Chăm sóc da cơ bản</span> <br />
+                    <span>140.000</span>
+                  </span>
+                </span>
+                <span className="media ordersMedia">
                   <img src={img} className="mr-3" alt="" width="100" height="100" />
-                  <div className="media-body">
-                    <h5 className="mt-0">Chăm sóc da cơ bản</h5>
-                    <div>140.000</div>
-                  </div>
-                </div>
-                <div className="media ordersMedia">
+                  <span className="media-body">
+                    <span className="mt-0">Chăm sóc da cơ bản</span><br />
+                    <span>140.000</span>
+                  </span>
+                </span>
+                <span className="media ordersMedia">
                   <img src={img} className="mr-3" alt="" width="100" height="100" />
-                  <div className="media-body">
-                    <h5 className="mt-0">Chăm sóc da cơ bản</h5>
-                    <div>140.000</div>
-                  </div>
-                </div>
+                  <span className="media-body">
+                    <span className="mt-0">Chăm sóc da cơ bản</span><br />
+                    <span>140.000</span>
+                  </span>
+                </span>
               </CardText>
             </CardBody>
           </Card>
