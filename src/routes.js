@@ -5,13 +5,13 @@ import { Redirect } from "react-router-dom";
 
 const MemberCard = LayzyLoad(import("./containers/MemberCard"));
 const Products = LayzyLoad(import("./containers/Products"));
-const CustomerList = LayzyLoad(import("./containers/Customers/CustomerList"));
-const CustomerAdd = LayzyLoad(import("./containers/Customers/CustomerAdd"));
-const EmployeesList = LayzyLoad(import("./containers/Employees/EmployeesList"));
-const EmployeesAdd = LayzyLoad(import("./containers/Employees/EmployeesAdd"));
+const CustomerList = LayzyLoad(import("./containers/Customers"));
+const CustomerAdd = LayzyLoad(import("./containers/Customers/add"));
+const EmployeesList = LayzyLoad(import("./containers/Employees"));
+const EmployeesAdd = LayzyLoad(import("./containers/Employees/add"));
 const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
 const AppointmentSchedule = LayzyLoad(import("./containers/AppointmentSchedule"));
-const Cashier = LayzyLoad(import("./containers/Cashier"));
+const Cashier = LayzyLoad(import("./containers/Orders"));
 const BillList = LayzyLoad(import("./containers/BillList"));
 const ReportByDate = LayzyLoad(import("./containers/ReportByDate"));
 const Commission = LayzyLoad(import("./containers/Commission"));

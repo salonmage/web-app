@@ -18,8 +18,8 @@ function AppointmentSchedule() {
     <Calendar
       localizer={localizer}
       events={myEventsList}
-      defaultView="month"
-      style={{ height: "100vh" }}
+      defaultView="week"
+      style={{ height: "50vh" }}
       onSelectSlot={(e) => console.log(e)}
       selectable={true}
     />
