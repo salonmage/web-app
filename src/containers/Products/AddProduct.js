@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
 
-function ProductAdd() {
+function AddProduct() {
   const { t } = useTranslation();
 
   return (
@@ -51,4 +51,4 @@ function ProductAdd() {
   )
 }
 
-export default ProductAdd
+export default AddProduct

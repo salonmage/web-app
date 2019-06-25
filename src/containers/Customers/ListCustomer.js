@@ -3,7 +3,7 @@ import { Row, Col, Toast, ToastBody, ToastHeader, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import img from '../../assets/img/2.jpg'
 
-function CustomerList() {
+function ListCustomer() {
   const { t } = useTranslation();
 
   return (
@@ -100,4 +100,4 @@ function CustomerList() {
   );
 }
 
-export default CustomerList;
+export default ListCustomer;

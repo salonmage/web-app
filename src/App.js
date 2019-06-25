@@ -12,7 +12,7 @@ const Register = LazyLoad(import("./containers/Register/Register"));
 const Login = LazyLoad(import("./containers/Login/Login"));
 const Page404 = LazyLoad(import("./containers/Page404/Page404"));
 const Page500 = LazyLoad(import("./containers/Page500/Page500"));
-const DefaultLayout = LazyLoad(import("./layouts/index"));
+const DefaultLayout = LazyLoad(import("./layouts/DefaultLayout/DefaultLayout"));
 
 class App extends Component {
   render() {

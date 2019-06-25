@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import DatePicker from "react-datepicker";
 
-function CustomerAdd() {
+function AddCustomer() {
   const { t } = useTranslation();
   const [birthday, setBirthday] = useState(() => new Date());
 
@@ -97,4 +97,4 @@ function CustomerAdd() {
   );
 }
 
-export default CustomerAdd;
+export default AddCustomer;

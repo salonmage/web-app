@@ -1,30 +1,45 @@
-import React from 'react'
+import React from "react";
 import { useTranslation } from "react-i18next";
 import LayzyLoad from "./components/LayzyLoad";
 import { Redirect } from "react-router-dom";
-import routesMap from './common/routesMap'
+import routesMap from "./common/routesMap";
 
-const MemberCard = LayzyLoad(import("./containers/MemberCard"));
-const Products = LayzyLoad(import("./containers/Products"));
-const CustomerList = LayzyLoad(import("./containers/Customers"));
-const CustomerAdd = LayzyLoad(import("./containers/Customers/add"));
-const EmployeesList = LayzyLoad(import("./containers/Employees"));
-const EmployeesAdd = LayzyLoad(import("./containers/Employees/add"));
-const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
-const AppointmentSchedule = LayzyLoad(import("./containers/AppointmentSchedule"));
-const AddOrder = LayzyLoad(import("./containers/Orders/add"));
-const Orders = LayzyLoad(import("./containers/Orders"));
-const ReportByDate = LayzyLoad(import("./containers/ReportByDate"));
-const Commission = LayzyLoad(import("./containers/Commission"));
-const InventoryManagement = LayzyLoad(import("./containers/InventoryManagement"));
-const BranchManagement = LayzyLoad(import("./containers/BranchManagement"));
+// ========================== PRODUCTS ===================================
+const ListProduct = LayzyLoad(import("./containers/Products/ListProduct"));
+const OutInBound = LayzyLoad(import("./containers/Products/OutInBound"));
+const AddProduct = LayzyLoad(import("./containers/Products/AddProduct"));
+const InventoryManagement = LayzyLoad(
+  import("./containers/Products/InventoryManagement")
+);
+
+// ========================== CUSTOMERS ===================================
+const MemberCard = LayzyLoad(import("./containers/Customers/MemberCard"));
+const ListCustomer = LayzyLoad(import("./containers/Customers/ListCustomer"));
+const AddCustomer = LayzyLoad(import("./containers/Customers/AddCustomer"));
+
+// ========================== EMPLOYEES ===================================
+const ListEmployees = LayzyLoad(import("./containers/Employees/ListEmployees"));
+const AddEmployees = LayzyLoad(import("./containers/Employees/AddEmployees"));
+const Commission = LayzyLoad(import("./containers/Employees/Commission"));
+
+// ========================== ORDERS ===================================
+const AddOrder = LayzyLoad(import("./containers/Orders/AddOrder"));
+const ListOrder = LayzyLoad(import("./containers/Orders/ListOrder"));
+
+// ========================== SERVICES ===================================
 const Services = LayzyLoad(import("./containers/Services"));
-const InboundOutbound = LayzyLoad(import("./containers/InboundOutbound"));
-const ProductAdd = LayzyLoad(import("./containers/Products/add"));
 const AddService = LayzyLoad(import("./containers/Services/add"));
 
+// ========================== UNSORTED GROUP ===============================
+const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
+const ReportByDate = LayzyLoad(import("./containers/ReportByDate"));
+const BranchManagement = LayzyLoad(import("./containers/BranchManagement"));
+const AppointmentSchedule = LayzyLoad(
+  import("./containers/AppointmentSchedule")
+);
+
 const RedirectHome = () => {
-  return <Redirect to="/list-customer" />;
+  return <Redirect to={routesMap.listCustomer} />;
 };
 
 const routeStaff = t => {
@@ -33,22 +48,22 @@ const routeStaff = t => {
     {
       path: routesMap.listCustomer,
       name: t("DS khách hàng"),
-      component: CustomerList
+      component: ListCustomer
     },
     {
       path: routesMap.addCustomer,
       name: t("Thêm khách hàng"),
-      component: CustomerAdd
+      component: AddCustomer
     },
     {
       path: routesMap.listEmployees,
       name: t("DS nhân viên"),
-      component: EmployeesList
+      component: ListEmployees
     },
     {
       path: routesMap.addEmployees,
       name: t("Thêm nhân viên"),
-      component: EmployeesAdd
+      component: AddEmployees
     },
     {
       path: routesMap.generalInformation,
@@ -68,7 +83,7 @@ const routeStaff = t => {
     {
       path: routesMap.listOrder,
       name: t("Danh sách hóa đơn"),
-      component: Orders
+      component: ListOrder
     },
     {
       path: routesMap.reportByDay,
@@ -88,7 +103,7 @@ const routeStaff = t => {
     {
       path: routesMap.listProduct,
       name: t("Danh sách sản phẩm"),
-      component: Products
+      component: ListProduct
     },
     {
       path: routesMap.inventoryManagement,
@@ -108,18 +123,18 @@ const routeStaff = t => {
     {
       path: routesMap.inboundOutbound,
       name: t("Nhập xuất kho"),
-      component: InboundOutbound
+      component: OutInBound
     },
     {
       path: routesMap.addProduct,
       name: t("Thêm sản phẩm"),
-      component: ProductAdd
+      component: AddProduct
     },
     {
       path: routesMap.addService,
       name: t("Thêm dịch vụ"),
       component: AddService
-    },
+    }
   ];
 };
 

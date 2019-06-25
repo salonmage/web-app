@@ -6,7 +6,7 @@ const navStaff = (t) => {
     items: [
       {
         name: t('QL khách hàng'),
-        icon: 'icon-note',
+        icon: 'cui-dashboard',
         children: [
           {
             name: t('Thêm khách hàng'),
@@ -15,12 +15,16 @@ const navStaff = (t) => {
           {
             name: t('DS khách hàng'),
             url: routesMap.listCustomer,
+          },
+          {
+            name: t('Thẻ thành viên'),
+            url: routesMap.memberCard
           }
         ],
       },
       {
         name: t('QL nhân viên'),
-        icon: 'icon-note',
+        icon: 'icon-user',
         children: [
           {
             name: t('Thêm nhân viên'),
@@ -29,12 +33,16 @@ const navStaff = (t) => {
           {
             name: t('DS nhân viên'),
             url: routesMap.listEmployees,
+          },
+          {
+            name: t('Hoa hồng'),
+            url: routesMap.commission
           }
         ],
       },
       {
         name: t('QL sản phẩm'),
-        icon: 'icon-note',
+        icon: 'icon-tag',
         children: [
           {
             name: t('Thêm sản phẩm'),
@@ -43,12 +51,20 @@ const navStaff = (t) => {
           {
             name: t('DS sản phẩm'),
             url: routesMap.listProduct,
+          },
+          {
+            name: t('Xuất nhập kho'),
+            url: routesMap.inboundOutbound
+          },
+          {
+            name: t('Tồn kho'),
+            url: routesMap.inventoryManagement
           }
         ]
       },
       {
         name: t('QL dịch vụ'),
-        icon: 'icon-note',
+        icon: 'icon-globe',
         children: [
           {
             name: t('Thêm dịch vụ'),
@@ -62,7 +78,7 @@ const navStaff = (t) => {
       },
       {
         name: t('Thu ngân'),
-        icon: 'icon-note',
+        icon: 'cui-dollar',
         children: [
           {
             name: t('Thêm hóa đơn'),
@@ -76,7 +92,7 @@ const navStaff = (t) => {
       },
       {
         name: t('Đặt lịch'),
-        icon: 'icon-note',
+        icon: 'icon-calendar',
         url: routesMap.appointmentSchedule
       },
       {
@@ -85,34 +101,14 @@ const navStaff = (t) => {
         url: routesMap.reportByDay
       },
       {
-        name: t('Hoa hồng'),
-        icon: 'icon-note',
-        url: routesMap.commission
-      },
-      {
-        name: t('Xuất nhập kho'),
-        icon: 'icon-note',
-        url: routesMap.inboundOutbound
-      },
-      {
         name: t('Thông tin chung'),
-        icon: 'icon-note',
+        icon: 'icon-home',
         url: routesMap.generalInformation
       },
       {
         name: t('Quản lý chi nhánh'),
-        icon: 'icon-note',
+        icon: 'icon-location-pin',
         url: routesMap.branchManagement
-      },
-      {
-        name: t('Quản lý tồn kho'),
-        icon: 'icon-note',
-        url: routesMap.inventoryManagement
-      },
-      {
-        name: t('Thẻ thành viên'),
-        icon: 'icon-note',
-        url: routesMap.memberCard
       }
     ]
   }

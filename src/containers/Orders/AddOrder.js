@@ -14,7 +14,7 @@ import {
 import { useTranslation } from "react-i18next";
 import img from "../../assets/img/2.jpg";
 
-function Orders() {
+function AddOrder() {
   const { t } = useTranslation();
 
   return (
@@ -63,23 +63,43 @@ function Orders() {
               </CardSubtitle>
               <CardText>
                 <span className="media ordersMedia">
-                  <img src={img} className="mr-3" alt="" width="100" height="100" />
+                  <img
+                    src={img}
+                    className="mr-3"
+                    alt=""
+                    width="100"
+                    height="100"
+                  />
                   <span className="media-body">
                     <span className="mt-0">Chăm sóc da cơ bản</span> <br />
                     <span>140.000</span>
                   </span>
                 </span>
                 <span className="media ordersMedia">
-                  <img src={img} className="mr-3" alt="" width="100" height="100" />
+                  <img
+                    src={img}
+                    className="mr-3"
+                    alt=""
+                    width="100"
+                    height="100"
+                  />
                   <span className="media-body">
-                    <span className="mt-0">Chăm sóc da cơ bản</span><br />
+                    <span className="mt-0">Chăm sóc da cơ bản</span>
+                    <br />
                     <span>140.000</span>
                   </span>
                 </span>
                 <span className="media ordersMedia">
-                  <img src={img} className="mr-3" alt="" width="100" height="100" />
+                  <img
+                    src={img}
+                    className="mr-3"
+                    alt=""
+                    width="100"
+                    height="100"
+                  />
                   <span className="media-body">
-                    <span className="mt-0">Chăm sóc da cơ bản</span><br />
+                    <span className="mt-0">Chăm sóc da cơ bản</span>
+                    <br />
                     <span>140.000</span>
                   </span>
                 </span>
@@ -92,4 +112,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default AddOrder;

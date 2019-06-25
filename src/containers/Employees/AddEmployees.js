@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
 
-function EmployeesAdd() {
+function AddEmployees() {
   const { t } = useTranslation();
   
   return (
@@ -61,4 +61,4 @@ function EmployeesAdd() {
   );
 }
 
-export default EmployeesAdd;
+export default AddEmployees;

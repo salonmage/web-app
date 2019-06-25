@@ -67,9 +67,6 @@ const DefaultLayout = props => {
             </Switch>
           </Container>
         </main>
-        {/* <AppAside fixed>
-          <DefaultAside />
-        </AppAside> */}
       </div>
       <AppFooter>
         <DefaultFooter />

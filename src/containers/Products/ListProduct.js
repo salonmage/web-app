@@ -3,22 +3,21 @@ import { Table, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import img from "../../assets/img/2.jpg";
 
-function Orders() {
+function ListProduct() {
   const { t } = useTranslation();
 
   return (
     <>
-      <Input type="text" placeholder={t("Tìm kiếm hóa đơn")} />
+      <Input type="text" placeholder={t("Tìm kiếm nhân viên")} />
       <br />
       <Table bordered responsive>
         <thead>
           <tr>
-            <th>{t("Khách hàng")}</th>
-            <th>{t("Ngày tạo")}</th>
-            <th>{t("Người lập")}</th>
-            <th>{t("Số tiền")}</th>
-            <th>{t("Còn nợ")}</th>
-            <th>{t("Trạng thái")}</th>
+            <th>{t("Ảnh")}</th>
+            <th>{t("Sản phẩm")}</th>
+            <th>{t("Nhãn hiệu")}</th>
+            <th>{t("Giá bán")}</th>
+            <th>{t("Tình trạng")}</th>
             <th />
           </tr>
         </thead>
@@ -31,11 +30,9 @@ function Orders() {
             <td>Nhân viên</td>
             <td>Nhóm 1</td>
             <td>Sbeauty1</td>
-            <td>Sbeauty1</td>
             <td>
-              <button className="btn btn-super-xs bg-primary">
-                <i className="icon-pencil" /> Sửa
-              </button>
+              <button className="btn btn-warning">{t("Sửa")}</button>{" "}
+              <button className="btn btn-danger">{t("Xóa")}</button>
             </td>
           </tr>
         </tbody>
@@ -44,4 +41,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default ListProduct;

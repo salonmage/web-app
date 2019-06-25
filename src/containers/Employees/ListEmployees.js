@@ -3,7 +3,7 @@ import { Table, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import img from '../../assets/img/2.jpg'
 
-function EmployeesList() {
+function ListEmployees() {
   const { t } = useTranslation();
   return (
     <>
@@ -39,4 +39,4 @@ function EmployeesList() {
   );
 }
 
-export default EmployeesList;
+export default ListEmployees;
