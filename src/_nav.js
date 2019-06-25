@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import routesMap from './common/routesMap'
 
 const navStaff = (t) => {
   return {
@@ -9,11 +10,11 @@ const navStaff = (t) => {
         children: [
           {
             name: t('Thêm khách hàng'),
-            url: '/add-customer',
+            url: routesMap.addCustomer,
           },
           {
             name: t('DS khách hàng'),
-            url: '/list-customer',
+            url: routesMap.listCustomer,
           }
         ],
       },
@@ -23,11 +24,11 @@ const navStaff = (t) => {
         children: [
           {
             name: t('Thêm nhân viên'),
-            url: '/add-employees',
+            url: routesMap.addEmployees,
           },
           {
             name: t('DS nhân viên'),
-            url: '/list-employees',
+            url: routesMap.listEmployees,
           }
         ],
       },
@@ -37,11 +38,11 @@ const navStaff = (t) => {
         children: [
           {
             name: t('Thêm sản phẩm'),
-            url: '/them-san-pham',
+            url: routesMap.addProduct,
           },
           {
             name: t('DS sản phẩm'),
-            url: '/danh-sach-san-pham',
+            url: routesMap.listProduct,
           }
         ]
       },
@@ -51,63 +52,67 @@ const navStaff = (t) => {
         children: [
           {
             name: t('Thêm dịch vụ'),
-            url: '/them-dich-vu',
+            url: routesMap.addService,
           },
           {
             name: t('DS dịch vụ'),
-            url: '/danh-sach-dich-vu'
+            url: routesMap.listService
           }
         ]
       },
       {
-        name: t('Lịch hẹn'),
-        icon: 'icon-note',
-        url: '/lich-hen'
-      },
-      {
         name: t('Thu ngân'),
         icon: 'icon-note',
-        url: '/thu-ngan'
+        children: [
+          {
+            name: t('Thêm hóa đơn'),
+            url: routesMap.addOrder,
+          },
+          {
+            name: t('DS hóa đơn'),
+            url: routesMap.listOrder
+          }
+        ]
       },
       {
-        name: t('DS hóa đơn'),
+        name: t('Đặt lịch'),
         icon: 'icon-note',
-        url: '/danh-sach-hoa-don'
+        url: routesMap.appointmentSchedule
       },
       {
         name: t('Báo cáo'),
         icon: 'icon-note',
-        url: '/bao-cao-theo-ngay'
+        url: routesMap.reportByDay
       },
       {
         name: t('Hoa hồng'),
         icon: 'icon-note',
-        url: '/hoa-hong-nhan-vien'
+        url: routesMap.commission
       },
       {
         name: t('Xuất nhập kho'),
         icon: 'icon-note',
-        url: '/nhap-xuat-kho-hang'
+        url: routesMap.inboundOutbound
       },
       {
         name: t('Thông tin chung'),
         icon: 'icon-note',
-        url: '/thong-tin-chung'
+        url: routesMap.generalInformation
       },
       {
         name: t('Quản lý chi nhánh'),
         icon: 'icon-note',
-        url: '/quan-ly-chi-nhanh'
+        url: routesMap.branchManagement
       },
       {
         name: t('Quản lý tồn kho'),
         icon: 'icon-note',
-        url: '/quan-ly-ton-kho'
+        url: routesMap.inventoryManagement
       },
       {
         name: t('Thẻ thành viên'),
         icon: 'icon-note',
-        url: '/the-thanh-vien'
+        url: routesMap.memberCard
       }
     ]
   }

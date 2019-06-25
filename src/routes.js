@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from "react-i18next";
 import LayzyLoad from "./components/LayzyLoad";
 import { Redirect } from "react-router-dom";
+import routesMap from './common/routesMap'
 
 const MemberCard = LayzyLoad(import("./containers/MemberCard"));
 const Products = LayzyLoad(import("./containers/Products"));
@@ -11,8 +12,8 @@ const EmployeesList = LayzyLoad(import("./containers/Employees"));
 const EmployeesAdd = LayzyLoad(import("./containers/Employees/add"));
 const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
 const AppointmentSchedule = LayzyLoad(import("./containers/AppointmentSchedule"));
-const Cashier = LayzyLoad(import("./containers/Orders"));
-const BillList = LayzyLoad(import("./containers/BillList"));
+const AddOrder = LayzyLoad(import("./containers/Orders/add"));
+const Orders = LayzyLoad(import("./containers/Orders"));
 const ReportByDate = LayzyLoad(import("./containers/ReportByDate"));
 const Commission = LayzyLoad(import("./containers/Commission"));
 const InventoryManagement = LayzyLoad(import("./containers/InventoryManagement"));
@@ -30,92 +31,92 @@ const routeStaff = t => {
   return [
     { path: "/", exact: true, name: t("Home"), component: RedirectHome },
     {
-      path: "/list-customer",
+      path: routesMap.listCustomer,
       name: t("DS khách hàng"),
       component: CustomerList
     },
     {
-      path: "/add-customer",
+      path: routesMap.addCustomer,
       name: t("Thêm khách hàng"),
       component: CustomerAdd
     },
     {
-      path: "/list-employees",
+      path: routesMap.listEmployees,
       name: t("DS nhân viên"),
       component: EmployeesList
     },
     {
-      path: "/add-employees",
+      path: routesMap.addEmployees,
       name: t("Thêm nhân viên"),
       component: EmployeesAdd
     },
     {
-      path: "/thong-tin-chung",
+      path: routesMap.generalInformation,
       name: t("Thông tin chung"),
       component: GeneralInformation
     },
     {
-      path: "/lich-hen",
-      name: t("Lịch hẹn"),
+      path: routesMap.appointmentSchedule,
+      name: t("Đặt lịch"),
       component: AppointmentSchedule
     },
     {
-      path: "/thu-ngan",
-      name: t("Thu ngân"),
-      component: Cashier
+      path: routesMap.addOrder,
+      name: t("Thêm hóa đơn"),
+      component: AddOrder
     },
     {
-      path: "/danh-sach-hoa-don",
+      path: routesMap.listOrder,
       name: t("Danh sách hóa đơn"),
-      component: BillList
+      component: Orders
     },
     {
-      path: "/bao-cao-theo-ngay",
+      path: routesMap.reportByDay,
       name: t("Báo cáo theo ngày"),
       component: ReportByDate
     },
     {
-      path: "/hoa-hong-nhan-vien",
-      name: t("Hoa hồng nhân viên"),
+      path: routesMap.commission,
+      name: t("Hoa hồng"),
       component: Commission
     },
     {
-      path: "/the-thanh-vien",
+      path: routesMap.memberCard,
       name: t("Thẻ thành viên"),
       component: MemberCard
     },
     {
-      path: "/danh-sach-san-pham",
+      path: routesMap.listProduct,
       name: t("Danh sách sản phẩm"),
       component: Products
     },
     {
-      path: "/quan-ly-ton-kho",
-      name: t("Danh sách dịch vụ"),
+      path: routesMap.inventoryManagement,
+      name: t("Quản lý tồn kho"),
       component: InventoryManagement
     },
     {
-      path: "/quan-ly-chi-nhanh",
+      path: routesMap.branchManagement,
       name: t("Quản lý chi nhánh"),
       component: BranchManagement
     },
     {
-      path: "/danh-sach-dich-vu",
+      path: routesMap.listService,
       name: t("Danh sách dịch vụ"),
       component: Services
     },
     {
-      path: "/nhap-xuat-kho-hang",
-      name: t("Nhập xuất kho hàng"),
+      path: routesMap.inboundOutbound,
+      name: t("Nhập xuất kho"),
       component: InboundOutbound
     },
     {
-      path: "/them-san-pham",
+      path: routesMap.addProduct,
       name: t("Thêm sản phẩm"),
       component: ProductAdd
     },
     {
-      path: "/them-dich-vu",
+      path: routesMap.addService,
       name: t("Thêm dịch vụ"),
       component: AddService
     },

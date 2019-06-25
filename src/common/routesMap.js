@@ -1,0 +1,21 @@
+export default {
+  home: '/',
+  listCustomer: '/danh-sach-khach-hang',
+  addCustomer: '/them-khach-hang',
+  listEmployees: '/danh-sach-nhan-vien',
+  addEmployees: '/them-nhan-vien',
+  generalInformation: '/thong-tin-chung',
+  appointmentSchedule: '/dat-lich',
+  addOrder: '/them-hoa-don',
+  listOrder: '/danh-sach-hoa-don',
+  reportByDay: '/bao-cao-theo-ngay',
+  commission: '/hoa-hong',
+  memberCard: '/the-thanh-vien',
+  listProduct: '/danh-sach-san-pham',
+  addProduct: '/them-san-pham',
+  inventoryManagement: '/quan-ly-ton-kho',
+  branchManagement: '/quan-ly-chi-nhanh',
+  listService: '/danh-sach-dich-vu',
+  addService: '/them-dich-vu',
+  inboundOutbound: '/xuat-nhap-kho'
+}
