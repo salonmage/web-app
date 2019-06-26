@@ -18,6 +18,7 @@ import useNav from "../../_nav";
 import useRoutes from "../../routes";
 import { actionLogout } from "../../redux/userLogin/actions";
 import LayzyLoad from "../../components/LayzyLoad";
+import routesMap from "../../common/routesMap";
 
 const DefaultFooter = LayzyLoad(import("./DefaultFooter"));
 const DefaultHeader = LayzyLoad(import("./DefaultHeader"));
@@ -34,7 +35,7 @@ const DefaultLayout = props => {
     dispatch(actionLogout());
   };
 
-  if (!userLogin) return <Redirect to="/login" />;
+  if (!userLogin) return <Redirect to={routesMap.login} />;
   return (
     <div className="app">
       <AppHeader fixed>
@@ -63,7 +64,7 @@ const DefaultLayout = props => {
                   />
                 ) : null;
               })}
-              <Redirect to="/404" />
+              <Redirect to={routesMap.notFound} />
             </Switch>
           </Container>
         </main>

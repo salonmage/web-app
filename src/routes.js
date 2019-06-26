@@ -27,8 +27,8 @@ const AddOrder = LayzyLoad(import("./containers/Orders/AddOrder"));
 const ListOrder = LayzyLoad(import("./containers/Orders/ListOrder"));
 
 // ========================== SERVICES ===================================
-const Services = LayzyLoad(import("./containers/Services"));
-const AddService = LayzyLoad(import("./containers/Services/add"));
+const Services = LayzyLoad(import("./containers/Services/ListService"));
+const AddService = LayzyLoad(import("./containers/Services/AddService"));
 
 // ========================== UNSORTED GROUP ===============================
 const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));

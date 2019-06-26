@@ -17,5 +17,8 @@ export default {
   branchManagement: '/quan-ly-chi-nhanh',
   listService: '/danh-sach-dich-vu',
   addService: '/them-dich-vu',
-  inboundOutbound: '/xuat-nhap-kho'
+  inboundOutbound: '/xuat-nhap-kho',
+  login: '/login',
+  register: '/register',
+  notFound: '/404'
 }
