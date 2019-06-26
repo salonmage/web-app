@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import LayzyLoad from "./components/LayzyLoad";
 import { Redirect } from "react-router-dom";
 import routesMap from "./common/routesMap";
+import useUserLogin from "./hooks/useUserLogin";
 
 // ========================== PRODUCTS ===================================
 const ListProduct = LayzyLoad(import("./containers/Products/ListProduct"));
@@ -138,14 +139,18 @@ const routeStaff = t => {
   ];
 };
 
-// const routeMember = t => {
-//   return [];
-// };
+const routeMember = t => {
+  return [
+    { path: "/", exact: true, name: t("Home"), component: RedirectHome }
+  ]
+}
 
 const useRoutes = () => {
   const { t } = useTranslation();
-  const routes = routeStaff(t);
-  return routes;
+  const userLogin = useUserLogin()
+  if (userLogin && userLogin.name === "Admin") return routeStaff(t)
+  if (userLogin && userLogin.name === "Member") return routeMember(t)
+  return routeMember(t);
 };
 
 export default useRoutes;

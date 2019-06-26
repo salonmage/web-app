@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import routesMap from './common/routesMap'
+import useUserLogin from "./hooks/useUserLogin";
 
 const navStaff = (t) => {
   return {
@@ -114,16 +115,29 @@ const navStaff = (t) => {
   }
 };
 
-// const navMember = () => {
-//   return {
-
-//   }
-// };
+const navMember = (t) => {
+  return {
+    items: [
+      {
+        name: t('Thông tin chung'),
+        icon: 'icon-home',
+        url: routesMap.generalInformation
+      },
+      {
+        name: t('Quản lý chi nhánh'),
+        icon: 'icon-location-pin',
+        url: routesMap.branchManagement
+      }
+    ]
+  }
+};
 
 const useNav = () => {
   const { t } = useTranslation();
-  const nav = navStaff(t)
-  return nav
+  const userLogin = useUserLogin()
+  if (userLogin && userLogin.name === "Admin") return navStaff(t)
+  if (userLogin && userLogin.name === "Member") return navMember(t)
+  return navMember(t)
 };
 
 export default useNav;
