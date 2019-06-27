@@ -2,6 +2,8 @@ import React from "react";
 import { Row, Col, Toast, ToastBody, ToastHeader, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import img from '../../assets/img/2.jpg'
+import { Link } from 'react-router-dom'
+import routesMap from "../../common/routesMap";
 
 function ListCustomer() {
   const { t } = useTranslation();
@@ -71,13 +73,14 @@ function ListCustomer() {
         <Toast className="sbtListCustomer">
           <ToastHeader>{t("Thông tin khách hàng")}</ToastHeader>
           <ToastBody>
-            <div>Ghé thăm lần cuối: 22/06/2019</div>
-            <div>Xếp hạng: hạng thường</div>
-            <div>Tổng số lần đến: 12</div>
-            <div>Số điện thoại: 0337639659</div>
-            <div>Email: buivanhuu2017@gmail.com</div>
-            <div>Giới tính: Nam</div>
-            <div>Facebook: facebook.com/buivanhuu2017</div>
+            <div>{t('Ghé thăm lần cuối')}: 22/06/2019</div>
+            <div>{t('Xếp hạng')}: hạng thường</div>
+            <div>{t('Tổng số lần đến')}: 12</div>
+            <div>{t('Số điện thoại')}: 0337639659</div>
+            <div>{t('Email')}: buivanhuu2017@gmail.com</div>
+            <div>{t('Giới tính')}: Nam</div>
+            <div>{t('Facebook')}: facebook.com/buivanhuu2017</div>
+            <div><Link to={`${routesMap.treatmentRegimen}/1`}>{t('Phác đồ điều trị')}</Link></div>
           </ToastBody>
         </Toast>
       </Col>

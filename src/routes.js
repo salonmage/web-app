@@ -17,6 +17,7 @@ const InventoryManagement = LayzyLoad(
 const MemberCard = LayzyLoad(import("./containers/Customers/MemberCard"));
 const ListCustomer = LayzyLoad(import("./containers/Customers/ListCustomer"));
 const AddCustomer = LayzyLoad(import("./containers/Customers/AddCustomer"));
+const TreatmentRegimen = LayzyLoad(import("./containers/Customers/TreatmentRegimen"));
 
 // ========================== EMPLOYEES ===================================
 const ListEmployees = LayzyLoad(import("./containers/Employees/ListEmployees"));
@@ -135,6 +136,11 @@ const routeStaff = t => {
       path: routesMap.addService,
       name: t("Thêm dịch vụ"),
       component: AddService
+    },
+    {
+      path: `${routesMap.treatmentRegimen}/:customerId`,
+      name: t("Phác đồ điều trị"),
+      component: TreatmentRegimen
     }
   ];
 };

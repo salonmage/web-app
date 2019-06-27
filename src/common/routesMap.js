@@ -20,5 +20,6 @@ export default {
   inboundOutbound: '/xuat-nhap-kho',
   login: '/login',
   register: '/register',
-  notFound: '/404'
+  notFound: '/404',
+  treatmentRegimen: '/phac-do-dieu-tri'
 }

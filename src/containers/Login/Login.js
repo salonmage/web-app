@@ -17,6 +17,7 @@ import {
 import { actionLogin } from "../../redux/userLogin/actions";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import routesMap from "../../common/routesMap";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Login = () => {
     dispatch(actionLogin({ name: "Admin" }));
   };
 
-  if (userLogin) return <Redirect to="/" />;
+  if (userLogin) return <Redirect to={routesMap.home} />;
   return (
     <div className="app flex-row align-items-center">
       <Container>
