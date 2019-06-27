@@ -29,35 +29,55 @@ function TreatmentRegimen() {
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustom1" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustom1"
+                    label="Trang"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustom2" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustom2"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustom3" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustom3"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustom4" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustom4"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustom5" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustom5"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
@@ -85,49 +105,77 @@ function TreatmentRegimen() {
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustomCheckbox1" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustomCheckbox1"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustomCheckbox2" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustomCheckbox2"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustomCheckbox3" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustomCheckbox3"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustomCheckbox4" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustomCheckbox4"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustomCheckbox5" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustomCheckbox5"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustomCheckbox6" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustomCheckbox6"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
             <td>
               <FormGroup>
                 <div>
-                  <CustomInput type="checkbox" id="exampleCustomCheckbox7" />
+                  <CustomInput
+                    type="checkbox"
+                    id="exampleCustomCheckbox7"
+                    label="Nhung"
+                  />
                 </div>
               </FormGroup>
             </td>
