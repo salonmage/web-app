@@ -21,5 +21,6 @@ export default {
   login: '/login',
   register: '/register',
   notFound: '/404',
-  treatmentRegimen: '/phac-do-dieu-tri'
+  treatmentRegimen: '/phac-do-dieu-tri',
+  registerService: '/dang-ky-su-dung-dich-vu'
 }

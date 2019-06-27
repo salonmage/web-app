@@ -80,7 +80,7 @@ function ListCustomer() {
             <div>{t('Email')}: buivanhuu2017@gmail.com</div>
             <div>{t('Giới tính')}: Nam</div>
             <div>{t('Facebook')}: facebook.com/buivanhuu2017</div>
-            <div><Link to={`${routesMap.treatmentRegimen}/1`}>{t('Phác đồ điều trị')}</Link></div>
+            <div><Link to={`${routesMap.registerService}/1`}>{t('Đăng ký sử dụng dịch vụ')}</Link></div>
           </ToastBody>
         </Toast>
       </Col>

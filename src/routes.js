@@ -18,6 +18,7 @@ const MemberCard = LayzyLoad(import("./containers/Customers/MemberCard"));
 const ListCustomer = LayzyLoad(import("./containers/Customers/ListCustomer"));
 const AddCustomer = LayzyLoad(import("./containers/Customers/AddCustomer"));
 const TreatmentRegimen = LayzyLoad(import("./containers/Customers/TreatmentRegimen"));
+const RegisterService = LayzyLoad(import("./containers/Customers/RegisterService"));
 
 // ========================== EMPLOYEES ===================================
 const ListEmployees = LayzyLoad(import("./containers/Employees/ListEmployees"));
@@ -141,6 +142,11 @@ const routeStaff = t => {
       path: `${routesMap.treatmentRegimen}/:customerId`,
       name: t("Phác đồ điều trị"),
       component: TreatmentRegimen
+    },
+    {
+      path: `${routesMap.registerService}/:customerId`,
+      name: t("Đăng ký sử dụng dịch vụ"),
+      component: RegisterService
     }
   ];
 };
