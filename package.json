@@ -52,6 +52,8 @@
   "scripts": {
     "start": "env-cmd -e development react-scripts start",
     "build": "env-cmd -e production react-scripts build",
+    "build:development": "env-cmd -e development react-scripts build",
+    "build:production": "env-cmd -e production react-scripts build",
     "test": "react-scripts test",
     "test:cov": "npm test -- --coverage --watchAll=false",
     "test:debug": "react-scripts --inspect-brk test --runInBand",

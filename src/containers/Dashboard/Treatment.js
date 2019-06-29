@@ -165,7 +165,7 @@ function Treatment() {
                       <Table
                         hover
                         responsive
-                        className="table-outline mb-0 d-none d-sm-table"
+                        className="table-outline"
                       >
                         <thead className="thead-light">
                           <tr>

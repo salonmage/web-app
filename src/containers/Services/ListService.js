@@ -7,7 +7,7 @@ function ListService() {
   return (
     <>
       <Input type="text" placeholder={t("Tìm kiếm dịch vụ")} className="sbtInputSearch" />
-      <Table hover responsive className="table-outline mb-0 d-none d-sm-table">
+      <Table hover responsive className="table-outline">
         <thead className="thead-light">
           <tr>
             <th>{t("Ảnh")}</th>
