@@ -1,24 +1,48 @@
 // Here you can add other styles
-body {
-  font-size: 16px;
+// body {
+//   font-size: 16px;
+// }
+// input[type="color"],
+// input[type="date"],
+// input[type="datetime"],
+// input[type="datetime-local"],
+// input[type="email"],
+// input[type="month"],
+// input[type="number"],
+// input[type="password"],
+// input[type="search"],
+// input[type="tel"],
+// input[type="text"],
+// input[type="time"],
+// input[type="url"],
+// input[type="week"],
+// select,
+// textarea {
+//   font-size: 16px !important;
+// }
+
+.displayInlineBlock {
+  display: inline-block;
+  width: auto;
 }
-input[type="color"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-select,
-textarea {
-  font-size: 16px !important;
+
+.displayBlock {
+  display: block;
+}
+
+.displayInline {
+  display: inline !important;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.sbtLink {
+  cursor: pointer;
+  &:hover {
+    background: #eee;
+  }
 }
 
 .sbtListCustomer {
@@ -66,5 +90,47 @@ textarea {
 .RegisterService {
   .toast {
     max-width: 100%;
+  }
+}
+
+.sbtMyModal {
+  max-width: "1600px" !important;
+  width: "90%" !important;
+}
+
+.sbtInputSearch {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.small-circle {
+  border-radius: 8px;
+  display: inline-block;
+  height: 16px;
+  margin-bottom: -3px;
+  margin-right: 10px;
+  width: 16px;
+}
+
+.bg-green {
+  background-color: green;
+  border-color: green;
+  color: #fff;
+}
+
+.bg-orange {
+  background-color: orange;
+  border-color: orange;
+  color: #fff;
+}
+
+.sbtListGroup {
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: 0;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: none;
   }
 }

@@ -35,6 +35,7 @@ const AddService = LayzyLoad(import("./containers/Services/AddService"));
 
 // ========================== UNSORTED GROUP ===============================
 const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
+const Dashboard = LayzyLoad(import("./containers/Dashboard"));
 const ReportByDate = LayzyLoad(import("./containers/ReportByDate"));
 const BranchManagement = LayzyLoad(import("./containers/BranchManagement"));
 const AppointmentSchedule = LayzyLoad(
@@ -147,6 +148,11 @@ const routeStaff = t => {
       path: `${routesMap.registerService}/:customerId`,
       name: t("Đăng ký sử dụng dịch vụ"),
       component: RegisterService
+    },
+    {
+      path: `${routesMap.dashboard}`,
+      name: t("Dashboard"),
+      component: Dashboard
     }
   ];
 };

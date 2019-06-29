@@ -22,5 +22,6 @@ export default {
   register: '/register',
   notFound: '/404',
   treatmentRegimen: '/phac-do-dieu-tri',
-  registerService: '/dang-ky-su-dung-dich-vu'
+  registerService: '/dang-ky-su-dung-dich-vu',
+  dashboard: '/dashboard'
 }

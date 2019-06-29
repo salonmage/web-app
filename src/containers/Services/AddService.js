@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
-import { useTranslation } from "react-i18next";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { useTranslation } from "react-i18next"
 
 function AddService() {
   const { t } = useTranslation();
@@ -26,17 +26,6 @@ function AddService() {
         <FormGroup>
           <Label for="name">{t("Thông tin chi tiết")}</Label>
           <Input type="textarea" />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="name">{t("Các bước thực hiện")}</Label>
-          <Input type="text" />
-          <Alert color="info" isOpen={true} toggle={() => console.log(1)}>
-            1. Rửa mặt
-          </Alert>
-          <Alert color="info" isOpen={true} toggle={() => console.log(1)}>
-            2. Tẩy da chết
-          </Alert>
         </FormGroup>
 
         <FormGroup>
