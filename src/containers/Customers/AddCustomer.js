@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, CustomInput } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import DatePicker from "react-datepicker";
 
-function AddCustomer() {
+function AddCustomer(props) {
   const { t } = useTranslation();
   const [birthday, setBirthday] = useState(() => new Date());
 
@@ -31,22 +31,27 @@ function AddCustomer() {
 
         <FormGroup>
           <Label>{t("Giới tính")}</Label>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio1" /> {t("Nam")}
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio1" defaultChecked={true} />{" "}
-              {t("Nữ")}
-            </Label>
+          <FormGroup>
+            <div>
+              <CustomInput type="radio" name="gender" label="Nam" inline />
+              <CustomInput
+                type="radio"
+                name="gender"
+                label="Nữ"
+                inline
+                defaultChecked={true}
+              />
+            </div>
           </FormGroup>
         </FormGroup>
 
         <FormGroup>
-          <Label for="name">{t("Ngày sinh")}</Label> <br/>
-          <DatePicker selected={birthday} onChange={handleChangeBirthday} className="form-control" />
+          <Label for="name">{t("Ngày sinh")}</Label> <br />
+          <DatePicker
+            selected={birthday}
+            onChange={handleChangeBirthday}
+            className="form-control"
+          />
         </FormGroup>
 
         <FormGroup>
@@ -90,7 +95,12 @@ function AddCustomer() {
         </FormGroup>
 
         <FormGroup>
-          <Button color="primary">{t("Save Changes")}</Button>
+          <Button
+            onClick={() => props.history.push("/dashboard")}
+            color="primary"
+          >
+            {t("Save Changes")}
+          </Button>
         </FormGroup>
       </Form>
     </>

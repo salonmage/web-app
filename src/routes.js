@@ -17,8 +17,12 @@ const InventoryManagement = LayzyLoad(
 const MemberCard = LayzyLoad(import("./containers/Customers/MemberCard"));
 const ListCustomer = LayzyLoad(import("./containers/Customers/ListCustomer"));
 const AddCustomer = LayzyLoad(import("./containers/Customers/AddCustomer"));
-const TreatmentRegimen = LayzyLoad(import("./containers/Customers/TreatmentRegimen"));
-const RegisterService = LayzyLoad(import("./containers/Customers/RegisterService"));
+const TreatmentRegimen = LayzyLoad(
+  import("./containers/Customers/TreatmentRegimen")
+);
+const RegisterService = LayzyLoad(
+  import("./containers/Customers/RegisterService")
+);
 
 // ========================== EMPLOYEES ===================================
 const ListEmployees = LayzyLoad(import("./containers/Employees/ListEmployees"));
@@ -38,6 +42,7 @@ const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
 const Dashboard = LayzyLoad(import("./containers/Dashboard"));
 const ReportByDate = LayzyLoad(import("./containers/ReportByDate"));
 const BranchManagement = LayzyLoad(import("./containers/BranchManagement"));
+const Treatment = LayzyLoad(import("./containers/Dashboard/Treatment"));
 const AppointmentSchedule = LayzyLoad(
   import("./containers/AppointmentSchedule")
 );
@@ -153,21 +158,24 @@ const routeStaff = t => {
       path: `${routesMap.dashboard}`,
       name: t("Dashboard"),
       component: Dashboard
+    },
+    {
+      path: `${routesMap.treatment}/:customerId`,
+      name: t("Phác đồ điều trị"),
+      component: Treatment
     }
   ];
 };
 
 const routeMember = t => {
-  return [
-    { path: "/", exact: true, name: t("Home"), component: RedirectHome }
-  ]
-}
+  return [{ path: "/", exact: true, name: t("Home"), component: RedirectHome }];
+};
 
 const useRoutes = () => {
   const { t } = useTranslation();
-  const userLogin = useUserLogin()
-  if (userLogin && userLogin.name === "Admin") return routeStaff(t)
-  if (userLogin && userLogin.name === "Member") return routeMember(t)
+  const userLogin = useUserLogin();
+  if (userLogin && userLogin.name === "Admin") return routeStaff(t);
+  if (userLogin && userLogin.name === "Member") return routeMember(t);
   return routeMember(t);
 };
 

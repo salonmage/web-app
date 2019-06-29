@@ -23,7 +23,7 @@ import {
 import classnames from "classnames";
 import { useTranslation } from "react-i18next";
 
-function Services() {
+function Services(props) {
   const { t } = useTranslation();
   const [modal, setModal] = useState(false);
   const [activeTab, setActiveTab] = useState(4);
@@ -355,15 +355,32 @@ function Services() {
         <Col>
           <Card body>
             <CardTitle>{t("Danh sách khách hàng")}</CardTitle>
-            <Input
-              type="text"
-              placeholder={t("Tìm kiếm khách hàng")}
-              className="sbtInputSearch"
-            />
+            <Row form>
+              <Col md="8">
+                <FormGroup>
+                  <Input
+                    type="text"
+                    placeholder={t("Tìm kiếm khách hàng")}
+                    className="sbtInputSearch"
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="4">
+                <FormGroup>
+                  <Button
+                    onClick={() => props.history.push("/them-khach-hang")}
+                    color="primary"
+                  >
+                    Thêm
+                  </Button>
+                </FormGroup>
+              </Col>
+            </Row>
+
             <ListGroup>
               <ListGroupItem
                 className="sbtLink"
-                onClick={() => toggleModal("customer")}
+                onClick={() => props.history.push("/phac-do-dieu-tri/1")}
               >
                 <span>Ngô Tuấn Long</span>{" "}
                 <span className="small-circle bg-green" />
