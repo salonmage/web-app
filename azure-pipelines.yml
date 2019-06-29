@@ -30,7 +30,15 @@ steps:
     -f $(system.defaultWorkingDirectory)/Dockerfile \
     -t $(imageRepo):$(imageTag) \
     $(system.defaultWorkingDirectory)
-  condition: succeeded()
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: 'Docker build'
+
+- bash: |
+    docker build \
+    -f $(system.defaultWorkingDirectory)/Dockerfile.develop \
+    -t $(imageRepo):$(imageTag) \
+    $(system.defaultWorkingDirectory)
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   displayName: 'Docker build'
 
 - bash: docker login $(REGISTRY_SERVER_NAME) -u $(REGISTRY_LOGIN) -p $(REGISTRY_PASSWORD)
