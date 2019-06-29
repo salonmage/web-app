@@ -48,7 +48,7 @@ const AppointmentSchedule = LayzyLoad(
 );
 
 const RedirectHome = () => {
-  return <Redirect to={routesMap.listCustomer} />;
+  return <Redirect to={routesMap.dashboard} />;
 };
 
 const routeStaff = t => {

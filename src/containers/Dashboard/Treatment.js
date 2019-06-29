@@ -8,9 +8,13 @@ import {
   Button,
   Modal,
   Table,
-  CustomInput
+  CustomInput,
+  Form,
+  Badge
 } from "reactstrap";
 import { useTranslation } from "react-i18next";
+import img from "../../assets/img/2.jpg";
+import $ from "jquery";
 
 function Treatment() {
   const { t } = useTranslation();
@@ -25,7 +29,7 @@ function Treatment() {
       <h2>Hồ sơ khách hàng</h2>
       <Row form>
         <Col>
-          <div className="alert alert-primary">
+          <div className="alert alert-secondary">
             <div>Họ tên: Nguyễn Mạnh Hưng</div>
             <div>Giới tính: nam</div>
             <div>Ngày sinh: 30/07/1990</div>
@@ -39,77 +43,85 @@ function Treatment() {
       <Row form>
         <Col>
           <FormGroup>
-            <Label>Tình trạng da hiện tại</Label>
-            <Input type="textarea" rows="5" />
+            <Input
+              type="textarea"
+              rows="5"
+              placeholder="Tình trạng da hiện tại"
+            />
+          </FormGroup>
+
+          <FormGroup row>
+            <Col md="2">
+              <Input type="select">
+                <option value="">Chọn loại da</option>
+                <option value="1">Da dầu</option>
+                <option value="2">Da khô</option>
+                <option value="3">Da hỗn hợp</option>
+              </Input>
+            </Col>
+
+            <Col md="2">
+              <Input type="select">
+                <option value="">Chọn loại da</option>
+                <option value="1">khỏe</option>
+                <option value="2">nhạy cảm</option>
+                <option value="3">rất nhạy cảm</option>
+              </Input>
+            </Col>
+
+            <Col md="2">
+              <Input type="select">
+                <option value="">Chọn loại da</option>
+                <option value="1">III</option>
+                <option value="2">IV</option>
+                <option value="3">V</option>
+              </Input>
+            </Col>
+
+            <Col md="2">
+              <Input type="select">
+                <option value="">Sau mụn để lại</option>
+                <option value="1">Thâm đen</option>
+                <option value="2">Thâm đỏ</option>
+                <option value="3">Hỗn hợp</option>
+              </Input>
+            </Col>
+
+            <Col md="2">
+              <Button onClick={() => $(".file").click()} color="primary">
+                Thêm ảnh
+              </Button>
+              <Input className="file" type="file" hidden />
+            </Col>
+          </FormGroup>
+
+          <FormGroup row>
+            <Col md="6">
+              <Input type="textarea" rows="5" placeholder="Tiền sử" />
+            </Col>
+            <Col md="6">
+              <Input
+                type="textarea"
+                rows="5"
+                placeholder="Mong muốn khách hàng"
+              />
+            </Col>
           </FormGroup>
 
           <FormGroup>
-            <Label>Chọn ảnh</Label>
-            <Input type="file" />
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Loại da</Label>
-
-            <Row form>
-              <Col>
-                <Input type="select">
-                  <option value="" />
-                  <option value="1">Da dầu</option>
-                  <option value="2">Da khô</option>
-                  <option value="3">Da hỗn hợp</option>
-                </Input>
-              </Col>
-              <Col>
-                <Input type="select">
-                  <option value="" />
-                  <option value="1">khỏe</option>
-                  <option value="2">nhạy cảm</option>
-                  <option value="3">rất nhạy cảm</option>
-                </Input>
-              </Col>
-            </Row>
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Typ da</Label>
-
-            <Row form>
-              <Col>
-                <Input type="select">
-                  <option value="" />
-                  <option value="1">III</option>
-                  <option value="2">IV</option>
-                  <option value="3">V</option>
-                </Input>
-              </Col>
-
-              <Col>
-                <Input type="select">
-                  <option value="">Sau mụn để lại</option>
-                  <option value="1">Thâm đen</option>
-                  <option value="2">Thâm đỏ</option>
-                  <option value="3">Hỗn hợp</option>
-                </Input>
-              </Col>
-            </Row>
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Tiền sử</Label>
-            <Input type="textarea" rows="5" />
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Mong muốn khách hàng</Label>
-            <Input type="textarea" rows="5" />
+            <Button color="primary" type="button">
+              Save changes
+            </Button>{" "}
+            <Button color="secondary" type="button">
+              Cancel
+            </Button>
           </FormGroup>
 
           <FormGroup>
             <Label>Dịch vụ triển khai tại Sbeauty</Label>
 
             <Row form>
-              <Col sm="4">
+              <Col md="4">
                 <FormGroup>
                   <Input type="select">
                     <option value="">Chọn dịch vụ</option>
@@ -120,27 +132,27 @@ function Treatment() {
                 </FormGroup>
               </Col>
 
-              <Col sm="8">
+              <Col md="8">
                 <div className="alert alert-secondary">
                   <FormGroup row>
-                    <Label className="text-info" sm="2">
+                    <Label className="text-info" md="2">
                       Giá sản phẩm
                     </Label>
-                    <Label sm="10">150.000</Label>
-                    <Label className="text-info" sm="2">
+                    <Label md="10">150.000</Label>
+                    <Label className="text-info" md="2">
                       Số lần
                     </Label>
-                    <Col sm="2">
+                    <Col md="2">
                       <Input type="text" />
                     </Col>
-                    <Label className="text-info" sm="2">
+                    <Label className="text-info" md="2">
                       Giảm giá
                     </Label>
-                    <Label sm="2">15%</Label>
-                    <Label className="text-info" sm="2">
+                    <Label md="2">15%</Label>
+                    <Label className="text-info" md="2">
                       Thành tiền
                     </Label>
-                    <Label sm="2">100.000</Label>
+                    <Label md="2">100.000</Label>
                   </FormGroup>
                   <FormGroup row>
                     <Label xs="12">Gói dịch vụ đang được khuyến mãi 15%</Label>
@@ -193,7 +205,7 @@ function Treatment() {
             <Label>Sản phẩm sử dụng tại nhà</Label>
 
             <Row form>
-              <Col sm="4">
+              <Col md="4">
                 <FormGroup>
                   <Input type="select">
                     <option value="">Chọn sản phẩm</option>
@@ -204,27 +216,27 @@ function Treatment() {
                 </FormGroup>
               </Col>
 
-              <Col sm="8">
+              <Col md="8">
                 <div className="alert alert-secondary">
                   <FormGroup row>
-                    <Label className="text-info" sm="2">
+                    <Label className="text-info" md="2">
                       Giá sản phẩm
                     </Label>
-                    <Label sm="10">150.000</Label>
-                    <Label className="text-info" sm="2">
+                    <Label md="10">150.000</Label>
+                    <Label className="text-info" md="2">
                       Số lượng
                     </Label>
-                    <Col sm="2">
+                    <Col md="2">
                       <Input type="text" />
                     </Col>
-                    <Label className="text-info" sm="2">
+                    <Label className="text-info" md="2">
                       Giảm giá
                     </Label>
-                    <Label sm="2">15%</Label>
-                    <Label className="text-info" sm="2">
+                    <Label md="2">15%</Label>
+                    <Label className="text-info" md="2">
                       Thành tiền
                     </Label>
-                    <Label sm="2">100.000</Label>
+                    <Label md="2">100.000</Label>
                   </FormGroup>
                   <FormGroup row>
                     <Label xs="12">Cách dùng</Label>
@@ -247,7 +259,7 @@ function Treatment() {
       </Row>
 
       <h2>Phác đồ điều trị</h2>
-      <Table hover responsive className="table-outline mb-0 d-none d-sm-table">
+      <Table hover responsive className="table-outline">
         <thead className="thead-light">
           <tr>
             <th>{t("Số")}</th>
@@ -397,39 +409,24 @@ function Treatment() {
             <td>8</td>
             <td>Phương pháp trị liệu</td>
             <td>
-              <Input type="select">
-                <option value="" />
-                <option value="1">IPL (5)</option>
-                <option value="1">PRP (3)</option>
-              </Input>
+              <CustomInput type="checkbox" label="IPL" id="ipl" />
+              <CustomInput type="checkbox" label="PRP" id="prp" />
             </td>
             <td>
-              <Input type="select">
-                <option value="" />
-                <option value="1">IPL (5)</option>
-                <option value="1">PRP (3)</option>
-              </Input>
+              <CustomInput type="checkbox" label="IPL" id="ipl2" />
+              <CustomInput type="checkbox" label="PRP" id="prp2" />
             </td>
             <td>
-              <Input type="select">
-                <option value="" />
-                <option value="1">IPL (5)</option>
-                <option value="1">PRP (3)</option>
-              </Input>
+              <CustomInput type="checkbox" label="IPL" id="ipl3" />
+              <CustomInput type="checkbox" label="PRP" id="prp3" />
             </td>
             <td>
-              <Input type="select">
-                <option value="" />
-                <option value="1">IPL (5)</option>
-                <option value="1">PRP (3)</option>
-              </Input>
+              <CustomInput type="checkbox" label="IPL" id="ipl4" />
+              <CustomInput type="checkbox" label="PRP" id="prp4" />
             </td>
             <td>
-              <Input type="select">
-                <option value="" />
-                <option value="1">IPL (5)</option>
-                <option value="1">PRP (3)</option>
-              </Input>
+              <CustomInput type="checkbox" label="IPL" id="ipl5" />
+              <CustomInput type="checkbox" label="PRP" id="prp5" />
             </td>
           </tr>
           <tr>
@@ -529,6 +526,35 @@ function Treatment() {
           </tr>
         </tbody>
       </Table>
+
+      <h2>Quản lý ảnh</h2>
+      <Form>
+        <FormGroup>
+          <Input type="select">
+            <option value="">Ảnh lần 1</option>
+            <option value="">Ảnh lần 2</option>
+            <option value="">Ảnh lần 3</option>
+          </Input>
+        </FormGroup>
+        <FormGroup row>
+          <Col>
+            <img src={img} width="200" height="200" />
+          </Col>
+        </FormGroup>
+        <FormGroup>
+          <Button
+            color="primary"
+            type="button"
+            onClick={() => $(".imgNew").click()}
+          >
+            Thêm ảnh
+          </Button>{" "}
+          <Input type="file" hidden className="imgNew" />
+          <Button color="primary" type="button">
+            Save Changes
+          </Button>
+        </FormGroup>
+      </Form>
 
       <div style={{ marginBottom: "50px" }} />
     </>
