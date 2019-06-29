@@ -352,7 +352,7 @@ function Services(props) {
   return (
     <>
       <Row>
-        <Col>
+        <Col lg="4" md="12">
           <Card body>
             <CardTitle>{t("Danh sách khách hàng")}</CardTitle>
             <Row form>
@@ -395,7 +395,7 @@ function Services(props) {
             </ListGroup>
           </Card>
         </Col>
-        <Col>
+        <Col lg="4" md="12">
           <Card body>
             <CardTitle>{t("Danh sách nhân viên")}</CardTitle>
             <Input
@@ -424,7 +424,7 @@ function Services(props) {
             </ListGroup>
           </Card>
         </Col>
-        <Col>
+        <Col lg="4" md="12">
           <Card body>
             <CardTitle>{t("Sản phẩm")}</CardTitle>
             <Input

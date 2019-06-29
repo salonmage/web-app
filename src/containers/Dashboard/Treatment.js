@@ -9,8 +9,7 @@ import {
   Modal,
   Table,
   CustomInput,
-  Form,
-  Badge
+  Form
 } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import img from "../../assets/img/2.jpg";
@@ -50,8 +49,8 @@ function Treatment() {
             />
           </FormGroup>
 
-          <FormGroup row>
-            <Col md="2">
+          <FormGroup className="sbtGroup" row>
+            <Col md="2" className="item">
               <Input type="select">
                 <option value="">Chọn loại da</option>
                 <option value="1">Da dầu</option>
@@ -60,7 +59,7 @@ function Treatment() {
               </Input>
             </Col>
 
-            <Col md="2">
+            <Col md="2" className="item">
               <Input type="select">
                 <option value="">Chọn loại da</option>
                 <option value="1">khỏe</option>
@@ -69,7 +68,7 @@ function Treatment() {
               </Input>
             </Col>
 
-            <Col md="2">
+            <Col md="2" className="item">
               <Input type="select">
                 <option value="">Chọn loại da</option>
                 <option value="1">III</option>
@@ -78,7 +77,7 @@ function Treatment() {
               </Input>
             </Col>
 
-            <Col md="2">
+            <Col md="2" className="item">
               <Input type="select">
                 <option value="">Sau mụn để lại</option>
                 <option value="1">Thâm đen</option>
@@ -87,11 +86,11 @@ function Treatment() {
               </Input>
             </Col>
 
-            <Col md="2">
+            <Col md="2" className="item">
               <Button onClick={() => $(".file").click()} color="primary">
                 Thêm ảnh
               </Button>
-              <Input className="file" type="file" hidden />
+              <Input multiple className="file" type="file" hidden />
             </Col>
           </FormGroup>
 
@@ -538,7 +537,7 @@ function Treatment() {
         </FormGroup>
         <FormGroup row>
           <Col>
-            <img src={img} width="200" height="200" />
+            <img src={img} alt="" width="200" height="200" />
           </Col>
         </FormGroup>
         <FormGroup>
