@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import { useTranslation } from "react-i18next";
 
-function Services(props) {
+export default function Dashboard(props) {
   const { t } = useTranslation();
 
   function renderListCustomer() {
@@ -120,5 +120,3 @@ function Services(props) {
     </Row>
   );
 }
-
-export default Services;

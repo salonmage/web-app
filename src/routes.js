@@ -17,9 +17,9 @@ const InventoryManagement = LayzyLoad(
 const MemberCard = LayzyLoad(import("./containers/Customers/MemberCard"));
 const ListCustomer = LayzyLoad(import("./containers/Customers/ListCustomer"));
 const AddCustomer = LayzyLoad(import("./containers/Customers/AddCustomer"));
-const TreatmentRegimen = LayzyLoad(
-  import("./containers/Customers/TreatmentRegimen")
-);
+// const TreatmentRegimen = LayzyLoad(
+//   import("./containers/Customers/TreatmentRegimen")
+// );
 const RegisterService = LayzyLoad(
   import("./containers/Customers/RegisterService")
 );
@@ -42,7 +42,7 @@ const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
 const Dashboard = LayzyLoad(import("./containers/Dashboard"));
 const ReportByDate = LayzyLoad(import("./containers/ReportByDate"));
 const BranchManagement = LayzyLoad(import("./containers/BranchManagement"));
-const Treatment = LayzyLoad(import("./containers/Dashboard/Treatment"));
+const TreatmentRegimen = LayzyLoad(import("./containers/Dashboard/TreatmentRegimen"));
 const AppointmentSchedule = LayzyLoad(
   import("./containers/AppointmentSchedule")
 );
@@ -144,11 +144,11 @@ const routeStaff = t => {
       name: t("Thêm dịch vụ"),
       component: AddService
     },
-    {
-      path: `${routesMap.treatmentRegimen}/:customerId`,
-      name: t("Phác đồ điều trị"),
-      component: TreatmentRegimen
-    },
+    // {
+    //   path: `${routesMap.treatmentRegimen}/:customerId`,
+    //   name: t("Phác đồ điều trị"),
+    //   component: TreatmentRegimen
+    // },
     {
       path: `${routesMap.registerService}/:customerId`,
       name: t("Đăng ký sử dụng dịch vụ"),
@@ -162,7 +162,7 @@ const routeStaff = t => {
     {
       path: `${routesMap.treatment}/:customerId`,
       name: t("Phác đồ điều trị"),
-      component: Treatment
+      component: TreatmentRegimen
     }
   ];
 };
