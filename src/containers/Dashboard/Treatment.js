@@ -9,7 +9,8 @@ import {
   Modal,
   Table,
   CustomInput,
-  Form
+  Form,
+  ModalFooter
 } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import img from "../../assets/img/2.jpg";
@@ -40,6 +41,11 @@ function Treatment() {
         </Row>
       </>
     );
+  }
+
+  const [isShowEvaluate, setIsShowEvaluate] = useState(false);
+  function handleShowEvaluate() {
+    setIsShowEvaluate(!isShowEvaluate);
   }
 
   function renderMedicalExamination() {
@@ -85,17 +91,60 @@ function Treatment() {
               </Col>
 
               <Col md="2" className="item">
-                <Input type="select">
-                  <option value="">Sau mụn để lại</option>
-                  <option value="1">Thâm đen</option>
-                  <option value="2">Thâm đỏ</option>
-                  <option value="3">Hỗn hợp</option>
-                </Input>
+                <Button onClick={handleShowEvaluate}>
+                  {t("Sau mụn để lại")}: <span>Thâm đen</span>
+                </Button>
+                <Modal isOpen={isShowEvaluate} toggle={handleShowEvaluate}>
+                  <div
+                    style={{
+                      padding: "10px",
+                      maxHeight: "300px",
+                      overflowY: "scroll"
+                    }}
+                  >
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => {
+                      return (
+                        <div key={item}>
+                          <div>1. Da mặt bạn bị những sần đỏ, mụn mủ:</div>
+                          <CustomInput
+                            type="checkbox"
+                            label="Không bao giờ"
+                            id={`evaluate1${item}`}
+                          />
+                          <CustomInput
+                            type="checkbox"
+                            label="Hiếm khi"
+                            id={`evaluate2${item}`}
+                          />
+                          <CustomInput
+                            type="checkbox"
+                            label="Ít nhất tháng một lần"
+                            id={`evaluate3${item}`}
+                          />
+                          <CustomInput
+                            type="checkbox"
+                            label="Ít nhất tuần một lần"
+                            id={`evaluate4${item}`}
+                          />
+                          <div style={{ marginBottom: "10px" }} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <ModalFooter>
+                    <Button color="primary" onClick={handleShowEvaluate}>
+                      {t("Save Changes")}
+                    </Button>{" "}
+                    <Button color="secondary" onClick={handleShowEvaluate}>
+                      {t("Cancel")}
+                    </Button>
+                  </ModalFooter>
+                </Modal>
               </Col>
 
               <Col md="2" className="item">
                 <Button onClick={() => $(".file").click()} color="primary">
-                  Thêm ảnh
+                  {t("Thêm ảnh")}
                 </Button>
                 <Input multiple className="file" type="file" hidden />
               </Col>
@@ -116,21 +165,21 @@ function Treatment() {
 
             <FormGroup>
               <Button color="primary" type="button">
-                Save changes
+                {t("Save Changes")}
               </Button>{" "}
               <Button color="secondary" type="button">
-                Cancel
+                {t("Cancel")}
               </Button>
             </FormGroup>
 
             <FormGroup>
-              <Label>Dịch vụ triển khai tại Sbeauty</Label>
+              <Label>{t("Dịch vụ triển khai tại Sbeauty")}</Label>
 
               <Row form>
                 <Col md="4">
                   <FormGroup>
                     <Input type="select">
-                      <option value="">Chọn dịch vụ</option>
+                      <option value="">{t("Chọn dịch vụ")}</option>
                       <option value="1">Chăm sóc da mặt</option>
                       <option value="2">IPL</option>
                       <option value="3">PRP</option>
@@ -142,7 +191,7 @@ function Treatment() {
                   <div className="alert alert-secondary">
                     <FormGroup row>
                       <Label className="text-info" md="2">
-                        Giá sản phẩm
+                        {t("Giá sản phẩm")}
                       </Label>
                       <Label md="10">150.000</Label>
                       <Label className="text-info" md="2">
