@@ -23,5 +23,5 @@ export default {
   notFound: '/404',
   registerService: '/dang-ky-su-dung-dich-vu',
   dashboard: '/dashboard',
-  treatment: '/phac-do-dieu-tri'
+  detailCustomer: '/chi-tiet-khach-hang'
 }

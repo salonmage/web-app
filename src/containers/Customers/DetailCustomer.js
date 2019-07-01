@@ -4,7 +4,7 @@ import MedicalExamination from "./MedicalExamination";
 import Treatment from "./Treatment";
 import ListImageCustomer from "./ListImageCustomer";
 
-function TreatmentRegimen() {
+function DetailCustomer() {
   return (
     <>
       <CustomerInformation />
@@ -16,4 +16,4 @@ function TreatmentRegimen() {
   );
 }
 
-export default TreatmentRegimen;
+export default DetailCustomer;
