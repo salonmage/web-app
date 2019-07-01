@@ -21,7 +21,7 @@ export default {
   login: '/login',
   register: '/register',
   notFound: '/404',
-  registerService: '/dang-ky-su-dung-dich-vu',
+  // registerService: '/dang-ky-su-dung-dich-vu',
   dashboard: '/dashboard',
   detailCustomer: '/chi-tiet-khach-hang'
 }
