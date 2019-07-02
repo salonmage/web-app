@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import {
   Row,
   Col,
-  Label,
   FormGroup,
   Input,
   Button,
   Modal,
-  Table,
   CustomInput,
   ModalFooter
 } from "reactstrap";
@@ -16,15 +14,12 @@ import $ from "jquery";
 
 function MedicalExamination() {
   const { t } = useTranslation();
-  const [modal, setModal] = useState(false);
+
   const [isShowEvaluate, setIsShowEvaluate] = useState(false);
   function handleShowEvaluate() {
     setIsShowEvaluate(!isShowEvaluate);
   }
 
-  function toggleModal() {
-    setModal(!modal);
-  }
   return (
     <>
       <h2>{t("Thăm khám")}</h2>
@@ -146,141 +141,6 @@ function MedicalExamination() {
             <Button color="secondary" type="button">
               {t("Cancel")}
             </Button>
-          </FormGroup>
-
-          <FormGroup>
-            <Label>{t("Dịch vụ triển khai tại Sbeauty")}</Label>
-
-            <Row form>
-              <Col md="4">
-                <FormGroup>
-                  <Input type="select">
-                    <option value="">{t("Chọn dịch vụ")}</option>
-                    <option value="1">Chăm sóc da mặt</option>
-                    <option value="2">IPL</option>
-                    <option value="3">PRP</option>
-                  </Input>
-                </FormGroup>
-              </Col>
-
-              <Col md="8">
-                <div className="alert alert-secondary">
-                  <FormGroup row>
-                    <Label className="text-info" md="2">
-                      {t("Giá sản phẩm")}
-                    </Label>
-                    <Label md="10">150.000</Label>
-                    <Label className="text-info" md="2">
-                      Số lần
-                    </Label>
-                    <Col md="2">
-                      <Input type="text" />
-                    </Col>
-                    <Label className="text-info" md="2">
-                      Giảm giá
-                    </Label>
-                    <Label md="2">15%</Label>
-                    <Label className="text-info" md="2">
-                      Thành tiền
-                    </Label>
-                    <Label md="2">100.000</Label>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label xs="12">Gói dịch vụ đang được khuyến mãi 15%</Label>
-                  </FormGroup>
-                  <FormGroup>
-                    <Button color="primary">Đăng ký</Button>{" "}
-                    <Button onClick={toggleModal} color="success">
-                      DS dịch vụ đã mua
-                    </Button>
-                    <Modal isOpen={modal} toggle={toggleModal} size="lg">
-                      <Table hover responsive className="table-outline">
-                        <thead className="thead-light">
-                          <tr>
-                            <th>{t("Tên dịch vụ")}</th>
-                            <th>{t("Đơn giá")}</th>
-                            <th>{t("Số lượng")}</th>
-                            <th>{t("Giảm giá")}</th>
-                            <th>{t("Thành tiền")}</th>
-                            <th>{t("Thao tác")}</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>IPL</td>
-                            <td>400.000</td>
-                            <td>3</td>
-                            <td>15%</td>
-                            <td>1.000.000</td>
-                            <td>
-                              <i
-                                style={{ cursor: "pointer" }}
-                                className="fa fa-remove"
-                              />
-                            </td>
-                          </tr>
-                        </tbody>
-                      </Table>
-                    </Modal>
-                  </FormGroup>
-                </div>
-              </Col>
-            </Row>
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Sản phẩm sử dụng tại nhà</Label>
-
-            <Row form>
-              <Col md="4">
-                <FormGroup>
-                  <Input type="select">
-                    <option value="">Chọn sản phẩm</option>
-                    <option value="1">Chăm sóc da mặt</option>
-                    <option value="2">IPL</option>
-                    <option value="3">PRP</option>
-                  </Input>
-                </FormGroup>
-              </Col>
-
-              <Col md="8">
-                <div className="alert alert-secondary">
-                  <FormGroup row>
-                    <Label className="text-info" md="2">
-                      Giá sản phẩm
-                    </Label>
-                    <Label md="10">150.000</Label>
-                    <Label className="text-info" md="2">
-                      Số lượng
-                    </Label>
-                    <Col md="2">
-                      <Input type="text" />
-                    </Col>
-                    <Label className="text-info" md="2">
-                      Giảm giá
-                    </Label>
-                    <Label md="2">15%</Label>
-                    <Label className="text-info" md="2">
-                      Thành tiền
-                    </Label>
-                    <Label md="2">100.000</Label>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label xs="12">Cách dùng</Label>
-                    <Col>
-                      <Input type="textarea" />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label xs="12">Gói dịch vụ đang được khuyến mãi 15%</Label>
-                  </FormGroup>
-                  <FormGroup>
-                    <Button color="primary">Mua</Button>{" "}
-                    <Button color="success">DS sản phẩm đã mua</Button>
-                  </FormGroup>
-                </div>
-              </Col>
-            </Row>
           </FormGroup>
         </Col>
       </Row>
