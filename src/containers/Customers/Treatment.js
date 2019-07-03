@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import classnames from "classnames";
+import $ from "jquery";
 
 function Treatment() {
   const { t } = useTranslation();
@@ -144,6 +145,24 @@ function Standard() {
     "Kem dưỡng",
     "Kem chống nắng"
   ];
+
+  function handleCheckAll() {
+    $(`#ipl1`).click();
+    $(`#prp1`).click();
+    $(`#name10`).click();
+    $(`#name11`).click();
+    $(`#name12`).click();
+    $(`#name13`).click();
+    $(`#name14`).click();
+    $(`#name15`).click();
+    $(`#name16`).click();
+    $(`#name17`).click();
+    $(`#name18`).click();
+    $(`#name19`).click();
+    $(`#name110`).click();
+    $(`#name111`).click();
+  }
+
   return (
     <>
       <Table hover responsive className="table-outline">
@@ -151,7 +170,14 @@ function Standard() {
           <tr>
             <th>{t("Số")}</th>
             <th>{t("Bước")}</th>
-            <th>{t("Lần 1")}</th>
+            <th>
+              <CustomInput
+                onClick={handleCheckAll}
+                type="checkbox"
+                label="Lần 1"
+                id="checkall1"
+              />
+            </th>
             <th>{t("Lần 2")}</th>
             <th>{t("Lần 3")}</th>
             <th>{t("Lần 4")}</th>
