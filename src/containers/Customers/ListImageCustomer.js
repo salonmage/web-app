@@ -7,7 +7,7 @@ function ListImageCustomer() {
   const { t } = useTranslation();
   return (
     <>
-      <h2>{t("Ảnh khách hàng")}</h2>
+      <h2 style={{ marginTop: "10px" }}>{t("Ảnh khách hàng")}</h2>
       <Form>
         <FormGroup>
           <Input type="select">

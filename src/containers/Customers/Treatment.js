@@ -1,8 +1,134 @@
-import React from "react";
-import { Button, Table, CustomInput } from "reactstrap";
+import React, { useState } from "react";
+import {
+  Button,
+  Table,
+  CustomInput,
+  TabContent,
+  TabPane,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
 import { useTranslation } from "react-i18next";
+import classnames from "classnames";
 
 function Treatment() {
+  const { t } = useTranslation();
+  const [activeTab, setActiveTab] = useState(1);
+
+  return (
+    <>
+      <h2>{t("Phác đồ điều trị")}</h2>
+      <Nav tabs>
+        <NavItem>
+          <NavLink
+            className={classnames({ active: activeTab === 1 })}
+            onClick={() => setActiveTab(1)}
+          >
+            Standard
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            className={classnames({ active: activeTab === 2 })}
+            onClick={() => setActiveTab(2)}
+          >
+            Triệt lông
+          </NavLink>
+        </NavItem>
+      </Nav>
+      <TabContent activeTab={activeTab}>
+        <TabPane tabId={1}>
+          <Standard />
+        </TabPane>
+        <TabPane tabId={2}>
+          <Waxxing />
+        </TabPane>
+      </TabContent>
+    </>
+  );
+}
+
+function Waxxing() {
+  const { t } = useTranslation();
+  const data1 = [
+    "Nách",
+    "Mép",
+    "1/2 chân",
+    "full chân",
+    "1/2 tay",
+    "full tay",
+    "bikini",
+    "vùng khác"
+  ];
+  return (
+    <>
+      <Table hover responsive className="table-outline">
+        <thead className="thead-light">
+          <tr>
+            <th />
+            <th>{t("Lần 1")}</th>
+            <th>{t("Lần 2")}</th>
+            <th>{t("Lần 3")}</th>
+            <th>{t("Lần 4")}</th>
+            <th>{t("Lần 5")}</th>
+            <th>{t("Lần 6")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data1.map((item, index) => {
+            return (
+              <tr key={index}>
+                <td>{item}</td>
+                <td>
+                  <CustomInput type="checkbox" inline id={`names1${index}`} />
+                </td>
+                <td>
+                  <CustomInput type="checkbox" inline id={`names2${index}`} />
+                </td>
+                <td>
+                  <CustomInput type="checkbox" inline id={`names3${index}`} />
+                </td>
+                <td>
+                  <CustomInput type="checkbox" inline id={`names4${index}`} />
+                </td>
+                <td>
+                  <CustomInput type="checkbox" inline id={`names5${index}`} />
+                </td>
+                <td>
+                  <CustomInput type="checkbox" inline id={`names6${index}`} />
+                </td>
+              </tr>
+            );
+          })}
+          <tr>
+            <td />
+            <td>
+              <Button color="primary">Hoàn thành</Button>
+            </td>
+            <td>
+              <Button color="primary">Hoàn thành</Button>
+            </td>
+            <td>
+              <Button color="primary">Hoàn thành</Button>
+            </td>
+            <td>
+              <Button color="primary">Hoàn thành</Button>
+            </td>
+            <td>
+              <Button color="primary">Hoàn thành</Button>
+            </td>
+            <td>
+              <Button color="primary">Hoàn thành</Button>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </>
+  );
+}
+
+function Standard() {
   const { t } = useTranslation();
   const data = [
     "Tẩy trang",
@@ -18,10 +144,8 @@ function Treatment() {
     "Kem dưỡng",
     "Kem chống nắng"
   ];
-
   return (
     <>
-      <h2>{t("Phác đồ điều trị")}</h2>
       <Table hover responsive className="table-outline">
         <thead className="thead-light">
           <tr>
