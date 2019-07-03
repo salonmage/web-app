@@ -202,15 +202,22 @@ function RegisterService() {
                   <Col>
                     <div className="alert alert-secondary">
                       <FormGroup row>
-                        <Label md="2">{t("Tổng")}:</Label>
+                        <Label className="text-info customLabel">
+                          {t("Tổng")}
+                        </Label>
                         <Label md="2">2.000.000</Label>
-                        <Label md="2">{t("Trả trước")}:</Label>
+                        <Label className="text-info customLabel">
+                          {t("Trả trước")}
+                        </Label>
                         <Col md="2">
                           <Input />
                         </Col>
-                        <Label md="2">{t("Còn lại")}:</Label>
+                        <Label className="text-info customLabel">
+                          {t("Còn lại")}
+                        </Label>
                         <Label md="2">1.000.000</Label>
                       </FormGroup>
+                      
                       <FormGroup>
                         <Button color="primary" type="button">
                           {t("Thanh toán")}
