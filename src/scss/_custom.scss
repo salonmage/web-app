@@ -1,7 +1,7 @@
 // Here you can add other styles
 
 body {
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .displayInlineBlock {
@@ -113,6 +113,29 @@ body {
     background-color: #fff;
     border: none;
   }
+}
+
+.customePlaceholder::placeholder {
+  text-align: right;
+}
+
+.descriptionInput {
+  position: relative;
+  span {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: #bbb;
+  }
+}
+
+.customLabel {
+  padding-top: calc(0.375rem + 1px);
+  padding-bottom: calc(0.375rem + 1px);
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: 1.5;
+  padding-left: 15px;
 }
 
 // Small devices (landscape phones, 576px and up)

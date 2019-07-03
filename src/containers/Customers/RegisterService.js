@@ -41,28 +41,43 @@ function RegisterService() {
               <Col md="8">
                 <div className="alert alert-secondary">
                   <FormGroup row>
-                    <Label className="text-info" md="2">
+                    <Label className="text-info customLabel">
                       {t("Giá sản phẩm")}
                     </Label>
                     <Label md="10">150.000</Label>
-                    <Label className="text-info" md="2">
-                      Số lần
+                  </FormGroup>
+
+                  <FormGroup row className="sbtGroup">
+                    <Label className="text-info customLabel">
+                      {t("Số lần")}
                     </Label>
                     <Col md="2">
                       <Input type="text" />
                     </Col>
-                    <Label className="text-info" md="2">
-                      Giảm giá
-                    </Label>
-                    <Label md="2">15%</Label>
-                    <Label className="text-info" md="2">
-                      Thành tiền
-                    </Label>
-                    <Label md="2">100.000</Label>
+                    <Label className="text-info customLabel">Giảm giá</Label>
+                    <Col md="2" className="item">
+                      <div className="descriptionInput">
+                        <Input type="text" />
+                        <span>%</span>
+                      </div>
+                    </Col>
+                    <Col md="2" className="item">
+                      <div className="descriptionInput">
+                        <Input type="text" />
+                        <span>$</span>
+                      </div>
+                    </Col>
                   </FormGroup>
+
+                  <FormGroup row>
+                    <Label className="text-info customLabel">Thành tiền</Label>
+                    <Label md="10">100.000</Label>
+                  </FormGroup>
+
                   <FormGroup row>
                     <Label xs="12">Gói dịch vụ đang được khuyến mãi 15%</Label>
                   </FormGroup>
+
                   <FormGroup>
                     <Button color="primary">Đăng ký</Button>
                   </FormGroup>
@@ -89,34 +104,50 @@ function RegisterService() {
               <Col md="8">
                 <div className="alert alert-secondary">
                   <FormGroup row>
-                    <Label className="text-info" md="2">
-                      Giá sản phẩm
+                    <Label className="text-info customLabel">
+                      {t("Giá sản phẩm")}
                     </Label>
                     <Label md="10">150.000</Label>
-                    <Label className="text-info" md="2">
-                      Số lượng
+                  </FormGroup>
+
+                  <FormGroup row className="sbtGroup">
+                    <Label className="text-info customLabel">
+                      {t("Số lượng")}
                     </Label>
                     <Col md="2">
                       <Input type="text" />
                     </Col>
-                    <Label className="text-info" md="2">
-                      Giảm giá
-                    </Label>
-                    <Label md="2">15%</Label>
-                    <Label className="text-info" md="2">
-                      Thành tiền
-                    </Label>
-                    <Label md="2">100.000</Label>
+                    <Label className="text-info customLabel">Giảm giá</Label>
+                    <Col md="2" className="item">
+                      <div className="descriptionInput">
+                        <Input type="text" />
+                        <span>%</span>
+                      </div>
+                    </Col>
+                    <Col md="2" className="item">
+                      <div className="descriptionInput">
+                        <Input type="text" />
+                        <span>$</span>
+                      </div>
+                    </Col>
                   </FormGroup>
+
                   <FormGroup row>
-                    <Label xs="12">Cách dùng</Label>
+                    <Label className="text-info customLabel">Thành tiền</Label>
+                    <Label md="10">100.000</Label>
+                  </FormGroup>
+
+                  <FormGroup row>
+                    <Label md="12">Cách dùng</Label>
                     <Col>
                       <Input type="textarea" />
                     </Col>
                   </FormGroup>
+
                   <FormGroup row>
-                    <Label xs="12">Gói dịch vụ đang được khuyến mãi 15%</Label>
+                    <Label md="12">Gói dịch vụ đang được khuyến mãi 15%</Label>
                   </FormGroup>
+
                   <FormGroup>
                     <Button color="primary">Mua</Button>
                   </FormGroup>

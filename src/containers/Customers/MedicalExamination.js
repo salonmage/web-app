@@ -7,7 +7,8 @@ import {
   Button,
   Modal,
   CustomInput,
-  ModalFooter
+  ModalFooter,
+  Label
 } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import $ from "jquery";
@@ -61,10 +62,13 @@ function MedicalExamination() {
               </Input>
             </Col>
 
-            <Col md="2" className="item">
-              <Button onClick={handleShowEvaluate}>
-                {t("Sau mụn để lại")}: <span>Thâm đen</span>
+            <Label className="customLabel">Sau mụn để lại:</Label>
+            <Col md="4" className="item">
+              <Button onClick={handleShowEvaluate}>Thâm đen</Button>{" "}
+              <Button onClick={() => $(".file").click()} color="primary">
+                {t("Thêm ảnh")}
               </Button>
+              <Input multiple className="file" type="file" hidden />
               <Modal isOpen={isShowEvaluate} toggle={handleShowEvaluate}>
                 <div
                   style={{
@@ -111,13 +115,6 @@ function MedicalExamination() {
                   </Button>
                 </ModalFooter>
               </Modal>
-            </Col>
-
-            <Col md="2" className="item">
-              <Button onClick={() => $(".file").click()} color="primary">
-                {t("Thêm ảnh")}
-              </Button>
-              <Input multiple className="file" type="file" hidden />
             </Col>
           </FormGroup>
 

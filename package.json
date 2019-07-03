@@ -35,14 +35,14 @@
     "react-chartjs-2": "^2.7.6",
     "react-datepicker": "^2.7.0",
     "react-dom": "^16.8.6",
-    "react-i18next": "^10.11.2",
+    "react-i18next": "^10.11.3",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-test-renderer": "^16.8.6",
     "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
-    "redux-saga": "^1.0.4",
+    "redux-saga": "^1.0.5",
     "simple-line-icons": "^2.4.1"
   },
   "devDependencies": {

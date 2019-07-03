@@ -1,8 +1,7 @@
 import React from "react";
-import { Col, FormGroup, Input, Button, Form } from "reactstrap";
+import { Col, FormGroup, Input, Form } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import img from "../../assets/img/2.jpg";
-import $ from "jquery";
 
 function ListImageCustomer() {
   const { t } = useTranslation();
@@ -19,21 +18,14 @@ function ListImageCustomer() {
         </FormGroup>
         <FormGroup row>
           <Col>
-            <img src={img} alt="" width="200" height="200" />
+            <img
+              src={img}
+              alt=""
+              width="200"
+              height="200"
+              style={{ borderRadius: "50%", cursor: "pointer" }}
+            />
           </Col>
-        </FormGroup>
-        <FormGroup>
-          <Button
-            color="primary"
-            type="button"
-            onClick={() => $(".imgNew").click()}
-          >
-            Thêm ảnh
-          </Button>{" "}
-          <Input type="file" hidden className="imgNew" />
-          <Button color="primary" type="button">
-            Save Changes
-          </Button>
         </FormGroup>
       </Form>
     </>
