@@ -1,7 +1,11 @@
 import { LOGIN, LOGOUT } from "./types";
+import produce from "immer";
 
 export const userLogin = (state = null, action) => {
-  if (action.type === LOGIN) return action.payload;
-  if (action.type === LOGOUT) return action.payload;
-  return state;
+  const nextState = produce(state, draftState => {
+    if (action.type === LOGIN) draftState = action.payload;
+    if (action.type === LOGOUT) draftState = action.payload;
+    return draftState;
+  });
+  return nextState;
 };
