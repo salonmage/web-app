@@ -12,12 +12,12 @@ import {
 } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import routesMap from "../../common/routesMap";
-import { withRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { push } from "connected-react-router";
 
-export default withRouter(ListCustomer);
-
-function ListCustomer(props) {
+export default function ListCustomer(props) {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -36,7 +36,7 @@ function ListCustomer(props) {
           <Col md="4">
             <FormGroup>
               <Button
-                onClick={() => props.history.push(`${routesMap.addCustomer}`)}
+                onClick={() => dispatch(push(routesMap.addCustomer))}
                 color="primary"
               >
                 Thêm
@@ -48,7 +48,7 @@ function ListCustomer(props) {
         <ListGroup>
           <ListGroupItem
             className="sbtLink"
-            onClick={() => props.history.push(`${routesMap.detailCustomer}/1`)}
+            onClick={() => dispatch(push(`${routesMap.detailCustomer}/1`))}
           >
             <span>Ngô Tuấn Long</span>{" "}
             <span className="small-circle bg-green" />

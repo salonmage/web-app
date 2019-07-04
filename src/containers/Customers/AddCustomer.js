@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input, CustomInput } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import DatePicker from "react-datepicker";
+import { useDispatch } from "react-redux";
+import { push } from "connected-react-router";
+import routesMap from "../../common/routesMap";
 
-function AddCustomer(props) {
+function AddCustomer() {
   const { t } = useTranslation();
   const [birthday, setBirthday] = useState(() => new Date());
+  const dispatch = useDispatch();
 
   function handleSubmitForm(e) {
     e.preventDefault();
@@ -33,13 +37,20 @@ function AddCustomer(props) {
           <Label>{t("Giới tính")}</Label>
           <FormGroup>
             <div>
-              <CustomInput type="radio" name="gender" label="Nam" inline />
+              <CustomInput
+                type="radio"
+                name="gender"
+                label="Nam"
+                inline
+                id="gender"
+              />
               <CustomInput
                 type="radio"
                 name="gender"
                 label="Nữ"
                 inline
                 defaultChecked={true}
+                id="gender1"
               />
             </div>
           </FormGroup>
@@ -96,7 +107,7 @@ function AddCustomer(props) {
 
         <FormGroup>
           <Button
-            onClick={() => props.history.push("/dashboard")}
+            onClick={() => dispatch(push(routesMap.dashboard))}
             color="primary"
           >
             {t("Save Changes")}
