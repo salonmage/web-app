@@ -26,7 +26,7 @@ function Treatment() {
             className={classnames({ active: activeTab === 1 })}
             onClick={() => setActiveTab(1)}
           >
-            Standard
+            {t("Chăm sóc da mặt")}
           </NavLink>
         </NavItem>
         <NavItem>
@@ -34,7 +34,7 @@ function Treatment() {
             className={classnames({ active: activeTab === 2 })}
             onClick={() => setActiveTab(2)}
           >
-            Triệt lông
+            {t("Triệt lông")}
           </NavLink>
         </NavItem>
       </Nav>

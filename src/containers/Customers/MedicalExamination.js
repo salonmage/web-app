@@ -62,7 +62,7 @@ function MedicalExamination() {
               </Input>
             </Col>
 
-            <Label className="customLabel">Sau mụn để lại:</Label>
+            <Label className="customLabel">{t("Sau mụn để lại")}:</Label>
             <Col md="4" className="item">
               <Button onClick={handleShowEvaluate}>Thâm đen</Button>{" "}
               <Button onClick={() => $(".file").click()} color="primary">

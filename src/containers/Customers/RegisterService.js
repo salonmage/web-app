@@ -54,7 +54,7 @@ function RegisterService() {
                     <Col md="2">
                       <Input type="text" />
                     </Col>
-                    <Label className="text-info customLabel">Giảm giá</Label>
+                    <Label className="text-info customLabel">{t("Giảm giá")}</Label>
                     <Col md="2" className="item">
                       <div className="descriptionInput">
                         <Input type="text" />
@@ -70,7 +70,7 @@ function RegisterService() {
                   </FormGroup>
 
                   <FormGroup row>
-                    <Label className="text-info customLabel">Thành tiền</Label>
+                    <Label className="text-info customLabel">{t("Thành tiền")}</Label>
                     <Label md="10">100.000</Label>
                   </FormGroup>
 
@@ -79,7 +79,7 @@ function RegisterService() {
                   </FormGroup>
 
                   <FormGroup>
-                    <Button color="primary">Đăng ký</Button>
+                    <Button color="primary">{t("Đăng ký")}</Button>
                   </FormGroup>
                 </div>
               </Col>
@@ -87,13 +87,13 @@ function RegisterService() {
           </FormGroup>
 
           <FormGroup>
-            <Label>Sản phẩm sử dụng tại nhà</Label>
+            <Label>{t("Sản phẩm sử dụng tại nhà")}</Label>
 
             <Row form>
               <Col md="4">
                 <FormGroup>
                   <Input type="select">
-                    <option value="">Chọn sản phẩm</option>
+                    <option value="">{t("Chọn sản phẩm")}</option>
                     <option value="1">Chăm sóc da mặt</option>
                     <option value="2">IPL</option>
                     <option value="3">PRP</option>
@@ -117,7 +117,7 @@ function RegisterService() {
                     <Col md="2">
                       <Input type="text" />
                     </Col>
-                    <Label className="text-info customLabel">Giảm giá</Label>
+                    <Label className="text-info customLabel">{t("Giảm giá")}</Label>
                     <Col md="2" className="item">
                       <div className="descriptionInput">
                         <Input type="text" />
@@ -133,12 +133,12 @@ function RegisterService() {
                   </FormGroup>
 
                   <FormGroup row>
-                    <Label className="text-info customLabel">Thành tiền</Label>
+                    <Label className="text-info customLabel">{t("Thành tiền")}</Label>
                     <Label md="10">100.000</Label>
                   </FormGroup>
 
                   <FormGroup row>
-                    <Label md="12">Cách dùng</Label>
+                    <Label md="12">{t("Cách dùng")}</Label>
                     <Col>
                       <Input type="textarea" />
                     </Col>
@@ -149,7 +149,7 @@ function RegisterService() {
                   </FormGroup>
 
                   <FormGroup>
-                    <Button color="primary">Mua</Button>
+                    <Button color="primary">{t("Mua")}</Button>
                   </FormGroup>
                 </div>
               </Col>
