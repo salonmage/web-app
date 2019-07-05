@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Button,
   Table,
   CustomInput,
   TabContent,
@@ -105,22 +104,22 @@ function Waxxing() {
           <tr>
             <td />
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done1`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done2`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done3`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done4`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done5`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done6`} label={t("Done")} />
             </td>
           </tr>
         </tbody>
@@ -240,19 +239,19 @@ function Standard() {
             <td />
             <td />
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done11`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done12`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done13`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done14`} label={t("Done")} />
             </td>
             <td>
-              <Button color="primary">Hoàn thành</Button>
+              <CustomInput type="checkbox" inline id={`done15`} label={t("Done")} />
             </td>
           </tr>
         </tbody>

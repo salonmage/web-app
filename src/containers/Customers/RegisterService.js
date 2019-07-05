@@ -179,6 +179,7 @@ function RegisterService() {
                       <th>{t("Số lượng")}</th>
                       <th>{t("Giảm giá")}</th>
                       <th>{t("Thành tiền")}</th>
+                      <th>{t("Trạng thái")}</th>
                       <th>{t("Thao tác")}</th>
                     </tr>
                   </thead>
@@ -189,6 +190,7 @@ function RegisterService() {
                       <td>3</td>
                       <td>15%</td>
                       <td>1.000.000</td>
+                      <td>Đã thanh toán</td>
                       <td>
                         <i
                           style={{ cursor: "pointer" }}
@@ -212,6 +214,10 @@ function RegisterService() {
                         <Col md="2">
                           <Input />
                         </Col>
+                        <Label className="text-info customLabel">
+                          {t("Đã trả")}
+                        </Label>
+                        <Label md="2">500.000</Label>
                         <Label className="text-info customLabel">
                           {t("Còn lại")}
                         </Label>
