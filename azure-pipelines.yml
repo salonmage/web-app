@@ -6,9 +6,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  projectName: 'salonmage'
   serviceName: 'webapp'
-  imageRepo: '$(REGISTRY_SERVER_NAME)/$(projectName)-$(serviceName)'
+  imageRepo: '$(REGISTRY_ORGANIZATION)/$(serviceName)'
 
 steps:
 - script: |
@@ -41,7 +40,7 @@ steps:
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   displayName: 'Docker build'
 
-- bash: docker login $(REGISTRY_SERVER_NAME) -u $(REGISTRY_LOGIN) -p $(REGISTRY_PASSWORD)
+- bash: docker login -u $(REGISTRY_LOGIN) -p $(REGISTRY_PASSWORD)
   condition: succeeded()
   displayName: 'Docker login'
 
@@ -62,13 +61,13 @@ steps:
 - task: HelmDeploy@0
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'my-k8s'
-    namespace: 'salonmage'
+    kubernetesServiceConnection: 'me-k8s'
+    namespace: 'default'
     command: 'upgrade'
     chartType: 'FilePath'
-    releaseName: '$(projectName)-$(serviceName)-prod'
+    releaseName: '$(serviceName)-prod'
     chartPath: '$(Build.ArtifactStagingDirectory)/$(serviceName)-$(build.buildId).tgz'
-    overrideValues: image.imagePullSecrets=$(IMAGE_PULL_SECRETS),image.repository=$(imageRepo),image.tag=$(imageTag),ingress.domain=$(PRODUCTION_DOMAIN)
+    overrideValues: image="$(imageRepo):$(imageTag)",ingress.domain="$(PRODUCTION_DOMAIN)"
     install: true
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: 'Helm update on Production'
@@ -76,13 +75,13 @@ steps:
 - task: HelmDeploy@0
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'my-k8s'
-    namespace: 'salonmage'
+    kubernetesServiceConnection: 'me-k8s'
+    namespace: 'default'
     command: 'upgrade'
     chartType: 'FilePath'
-    releaseName: '$(projectName)-$(serviceName)-stag'
+    releaseName: '$(serviceName)-stag'
     chartPath: '$(Build.ArtifactStagingDirectory)/$(serviceName)-$(build.buildId).tgz'
-    overrideValues: image.imagePullSecrets=$(IMAGE_PULL_SECRETS),image.repository=$(imageRepo),image.tag=$(imageTag),ingress.domain=$(STAGING_DOMAIN)
+    overrideValues: image="$(imageRepo):$(imageTag)",ingress.domain="$(STAGING_DOMAIN)"
     install: true
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   displayName: 'Helm update on Staging'

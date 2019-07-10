@@ -1,11 +1,10 @@
 replicaCount: 1
 
-image:
-  pullPolicy: Always
+imagePullPolicy: Always
 
 service:
   internalPort: 80
   externalPort: 8000
 
 ingress:
-  domain: 'domain.com'
+  domain: 'salonmage.com'
