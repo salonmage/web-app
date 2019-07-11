@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import routesMap from "./common/routesMap";
+import routesMap, { parentRoutes } from "./common/routesMap";
 import useUserLogin from "./hooks/useUserLogin";
 
 const navStaff = t => {
@@ -13,6 +13,7 @@ const navStaff = t => {
       {
         name: t("QL khách hàng"),
         icon: "fa fa-user-circle-o",
+        url: parentRoutes.customer,
         children: [
           {
             name: t("Thêm khách hàng"),
@@ -27,6 +28,7 @@ const navStaff = t => {
       {
         name: t("QL dịch vụ"),
         icon: "icon-globe",
+        url: parentRoutes.service,
         children: [
           {
             name: t("Thêm dịch vụ"),
@@ -41,6 +43,7 @@ const navStaff = t => {
       {
         name: t("QL nhân viên"),
         icon: "icon-user",
+        url: parentRoutes.employess,
         children: [
           {
             name: t("Thêm nhân viên"),
@@ -56,6 +59,7 @@ const navStaff = t => {
       {
         name: t("QL sản phẩm"),
         icon: "icon-tag",
+        url: parentRoutes.product,
         children: [
           {
             name: t("Thêm sản phẩm"),
@@ -78,6 +82,7 @@ const navStaff = t => {
       {
         name: t("Thu ngân"),
         icon: "cui-dollar",
+        url: parentRoutes.order,
         children: [
           {
             name: t("Thêm hóa đơn"),
