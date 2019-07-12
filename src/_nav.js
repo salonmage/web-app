@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import routesMap, { parentRoutes } from "./common/routesMap";
-import useUserLogin from "./hooks/useUserLogin";
+import { useSelector } from "react-redux";
 
 const navStaff = t => {
   return {
@@ -127,7 +127,7 @@ const navMember = t => {
 
 const useNav = () => {
   const { t } = useTranslation();
-  const userLogin = useUserLogin();
+  const userLogin = useSelector(state => state.userLogin);
   if (userLogin && userLogin.name === "Admin") return navStaff(t);
   if (userLogin && userLogin.name === "Member") return navMember(t);
   return navMember(t);

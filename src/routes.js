@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import LayzyLoad from "./components/LayzyLoad";
 import { Redirect } from "react-router-dom";
 import routesMap from "./common/routesMap";
-import useUserLogin from "./hooks/useUserLogin";
+import { useSelector } from "react-redux";
 
 // ========================== PRODUCTS ===================================
 const ListProduct = LayzyLoad(import("./containers/Products/ListProduct"));
@@ -167,7 +167,7 @@ const routeMember = t => {
 
 const useRoutes = () => {
   const { t } = useTranslation();
-  const userLogin = useUserLogin();
+  const userLogin = useSelector(state => state.userLogin);
   if (userLogin && userLogin.name === "Admin") return routeStaff(t);
   if (userLogin && userLogin.name === "Member") return routeMember(t);
   return routeMember(t);
