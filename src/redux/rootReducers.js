@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
 import { userLogin } from "./userLogin/reducers";
-import { connectRouter } from "connected-react-router";
 
-const reducers = history =>
-  combineReducers({ userLogin, router: connectRouter(history) });
+const reducers = combineReducers({ userLogin });
 
 export default reducers;

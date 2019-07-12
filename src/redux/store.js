@@ -2,8 +2,6 @@ import { createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import reducers from "./rootReducers";
 import rootSagas from "./rootSagas";
-import history from "../common/history";
-import { routerMiddleware } from "connected-react-router";
 
 const loadState = () => {
   try {
@@ -31,9 +29,9 @@ const persistedState = loadState();
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  reducers(history),
+  reducers,
   persistedState,
-  compose(applyMiddleware(sagaMiddleware, routerMiddleware(history)))
+  compose(applyMiddleware(sagaMiddleware))
 );
 
 sagaMiddleware.run(rootSagas);
