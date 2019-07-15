@@ -1,6 +1,6 @@
 import request from "../common/request";
 
-const apiUrl = process.env.REACT_APP_API;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 /**
  *

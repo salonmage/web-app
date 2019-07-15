@@ -1,7 +1,7 @@
 import request from "../common/request";
 import { getToken } from '../common/utils'
 
-const apiUrl = process.env.REACT_APP_API;
+const apiUrl = process.env.REACT_APP_API_URL;
 const version = process.env.REACT_APP_API_VERSION
 
 export function getListUser() {
