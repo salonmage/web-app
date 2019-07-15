@@ -1,10 +1,8 @@
 import request from "../common/request";
+import { getToken } from '../common/utils'
 
 const apiUrl = process.env.REACT_APP_API;
-const version = "1.0";
-function getToken() {
-  return "";
-}
+const version = process.env.REACT_APP_API_VERSION
 
 export function getListUser() {
   return request({
