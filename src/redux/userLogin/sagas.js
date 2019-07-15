@@ -1,4 +1,5 @@
 import { takeEvery, call, put, takeLatest } from "redux-saga/effects";
+import emitter from "../../common/emitter";
 import { login, refreshToken } from "../../services/auth";
 import { getMyInfo } from "../../services/accounts";
 import {
@@ -12,7 +13,6 @@ import {
   REFRESH_TOKEN_FAIL,
   REFRESH_TOKEN_SUCCESS
 } from "./types";
-import emitter from "../../common/emitter";
 import store from "../store";
 
 export default function*() {
