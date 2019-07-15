@@ -1,9 +1,9 @@
 import { LOGIN, LOGOUT, UPDATE_USER_LOGIN, REFRESH_TOKEN } from "./types";
 
-export function actionLogin(userLogin) {
+export function actionLogin(data) {
   return {
     type: LOGIN,
-    payload: userLogin
+    payload: data
   };
 }
 

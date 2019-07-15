@@ -44,10 +44,8 @@ const DefaultLayout = props => {
 
   React.useEffect(() => {
     const token = setInterval(() => {
-      setInterval(() => {
-        dispatch(refreshToken());
-      }, 15 * 60 * 1000);
-    });
+      dispatch(refreshToken());
+    }, 15 * 60 * 1000);
     return () => clearInterval(token);
   }, [dispatch]);
 
