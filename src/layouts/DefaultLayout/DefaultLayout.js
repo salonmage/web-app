@@ -16,7 +16,11 @@ import {
 } from "@coreui/react";
 import useNav from "../../_nav";
 import useRoutes from "../../routes";
-import { actionLogout } from "../../redux/userLogin/actions";
+import {
+  actionLogout,
+  updateUserLogin,
+  refreshToken
+} from "../../redux/userLogin/actions";
 import LayzyLoad from "../../components/LayzyLoad";
 import routesMap from "../../common/routesMap";
 
@@ -33,6 +37,19 @@ const DefaultLayout = props => {
     e.preventDefault();
     dispatch(actionLogout());
   };
+
+  React.useEffect(() => {
+    dispatch(updateUserLogin());
+  }, [dispatch]);
+
+  React.useEffect(() => {
+    const token = setInterval(() => {
+      setInterval(() => {
+        dispatch(refreshToken());
+      }, 15 * 60 * 1000);
+    });
+    return () => clearInterval(token);
+  }, [dispatch]);
 
   if (!userLogin) return <Redirect to={routesMap.login} />;
   return (

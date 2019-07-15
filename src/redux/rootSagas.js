@@ -1,8 +1,6 @@
-import { all } from 'redux-saga/effects'
-import watchFetchUser from './userLogin/sagas'
+import { all } from "redux-saga/effects";
+import getListUser from "./userLogin/sagas";
 
 export default function* rootSaga() {
-  yield all([
-    watchFetchUser()
-  ])
+  yield all([getListUser()]);
 }

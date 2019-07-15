@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import routesMap, { parentRoutes } from "./common/routesMap";
-import { useSelector } from "react-redux";
 
 const navStaff = t => {
   return {
@@ -108,29 +107,9 @@ const navStaff = t => {
   };
 };
 
-const navMember = t => {
-  return {
-    items: [
-      {
-        name: t("Thông tin chung"),
-        icon: "icon-home",
-        url: routesMap.generalInformation
-      },
-      {
-        name: t("Quản lý chi nhánh"),
-        icon: "icon-location-pin",
-        url: routesMap.branchManagement
-      }
-    ]
-  };
-};
-
 const useNav = () => {
   const { t } = useTranslation();
-  const userLogin = useSelector(state => state.userLogin);
-  if (userLogin && userLogin.name === "Admin") return navStaff(t);
-  if (userLogin && userLogin.name === "Member") return navMember(t);
-  return navMember(t);
+  return navStaff(t);
 };
 
 export default useNav;

@@ -18,14 +18,31 @@ import { actionLogin } from "../../redux/userLogin/actions";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import routesMap from "../../common/routesMap";
+import useFormLogin from "../../hooks/useFormInput";
+import useEvent from "../../hooks/useEvent";
+import { LOGIN_FAIL } from "../../redux/userLogin/types";
+import { get } from "lodash";
 
 const Login = () => {
   const dispatch = useDispatch();
   const userLogin = useSelector(state => state.userLogin, shallowEqual);
+  const email = useFormLogin("tuanlongn@gmail.com");
+  const password = useFormLogin("123456");
 
-  const handleLogin = () => {
-    dispatch(actionLogin({ name: "Admin" }));
+  const handleLogin = e => {
+    e.preventDefault();
+    setError("");
+    const payload = {
+      email: email.value,
+      password: password.value
+    };
+    dispatch(actionLogin(payload));
   };
+
+  const [error, setError] = React.useState("");
+  useEvent(LOGIN_FAIL, errors => {
+    setError(get(errors, "response.data.description", ""));
+  });
 
   if (userLogin) return <Redirect to={routesMap.home} />;
   return (
@@ -36,20 +53,17 @@ const Login = () => {
             <CardGroup>
               <Card className="p-4">
                 <CardBody>
-                  <Form>
+                  <Form onSubmit={handleLogin}>
                     <h1>Login</h1>
                     <p className="text-muted">Sign In to your account</p>
+                    {error && <p className="alert alert-danger">{error}</p>}
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
                           <i className="icon-user" />
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input
-                        type="text"
-                        placeholder="Username"
-                        autoComplete="username"
-                      />
+                      <Input type="text" placeholder="Email" {...email} />
                     </InputGroup>
                     <InputGroup className="mb-4">
                       <InputGroupAddon addonType="prepend">
@@ -60,21 +74,17 @@ const Login = () => {
                       <Input
                         type="password"
                         placeholder="Password"
-                        autoComplete="current-password"
+                        {...password}
                       />
                     </InputGroup>
                     <Row>
                       <Col xs="6">
-                        <Button
-                          color="primary"
-                          className="px-4"
-                          onClick={handleLogin}
-                        >
+                        <Button color="primary" className="px-4">
                           Login
                         </Button>
                       </Col>
                       <Col xs="6" className="text-right">
-                        <Button color="link" className="px-0">
+                        <Button type="button" color="link" className="px-0">
                           Forgot password?
                         </Button>
                       </Col>

@@ -1,5 +1,7 @@
-import axios from 'axios'
+import axios from "axios";
 
-const request = options => axios(options)
+const request = options => {
+  return axios(options);
+};
 
-export default request
+export default request;
