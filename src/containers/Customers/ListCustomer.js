@@ -25,7 +25,6 @@ function ListCustomer() {
             <th>{t("Họ tên")}</th>
             <th>{t("Điện thoại")}</th>
             <th>{t("Email")}</th>
-            <th>{t("Trạng thái")}</th>
             <th>{t("Thao tác")}</th>
           </tr>
         </thead>
@@ -36,8 +35,10 @@ function ListCustomer() {
                 <td>{get(user, "fullName", "")}</td>
                 <td>{get(user, "phone", "")}</td>
                 <td>{get(user, "email", "")}</td>
-                <td />
-                <td />
+                <td>
+                  <i className="fas fa-edit link" />{" "}
+                  <i className="fas fa-trash-alt link" />
+                </td>
               </tr>
             );
           })}
