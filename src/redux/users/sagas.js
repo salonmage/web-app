@@ -10,11 +10,22 @@ import {
 } from "./types";
 import { getListUser, createUser } from "../../services/user";
 
+function formatData(data) {
+  data.map(user => {
+    user.attributes.map(attribute => {
+      if (attribute.text) user[attribute.key] = attribute.text;
+      if (attribute.list) user[attribute.key] = attribute.list;
+    });
+  });
+  return data;
+}
+
 export default function*() {
   yield takeEvery(GET_LIST_USER, function*(action) {
     try {
       const res = yield call(getListUser);
-      yield put({ type: GET_LIST_USER_SUCCESS, payload: res.data.users });
+      const payload = formatData(res.data.users);
+      yield put({ type: GET_LIST_USER_SUCCESS, payload });
     } catch (errors) {
       emitter.emit(GET_LIST_USER_FAIL, errors);
     }
