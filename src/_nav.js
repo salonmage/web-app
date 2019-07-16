@@ -30,12 +30,12 @@ const navStaff = t => {
         url: parentRoutes.service,
         children: [
           {
-            name: t("Thêm dịch vụ"),
-            url: routesMap.addService
+            name: t("Dịch vụ"),
+            url: routesMap.service
           },
           {
-            name: t("DS dịch vụ"),
-            url: routesMap.listService
+            name: t("Gói dịch vụ"),
+            url: routesMap.comboService
           }
         ]
       },

@@ -33,8 +33,8 @@ const AddOrder = LayzyLoad(import("./containers/Orders/AddOrder"));
 const ListOrder = LayzyLoad(import("./containers/Orders/ListOrder"));
 
 // ========================== SERVICES ===================================
-const Services = LayzyLoad(import("./containers/Services/ListService"));
-const AddService = LayzyLoad(import("./containers/Services/AddService"));
+const ComboService = LayzyLoad(import("./containers/Services/ComboServices"));
+const Services = LayzyLoad(import("./containers/Services/Services"));
 
 // ========================== UNSORTED GROUP ===============================
 const GeneralInformation = LayzyLoad(import("./containers/GeneralInformation"));
@@ -123,11 +123,6 @@ const routeStaff = t => {
       component: BranchManagement
     },
     {
-      path: routesMap.listService,
-      name: t("Danh sách dịch vụ"),
-      component: Services
-    },
-    {
       path: routesMap.inboundOutbound,
       name: t("Nhập xuất kho"),
       component: OutInBound
@@ -138,15 +133,15 @@ const routeStaff = t => {
       component: AddProduct
     },
     {
-      path: routesMap.addService,
+      path: routesMap.service,
       name: t("Thêm dịch vụ"),
-      component: AddService
+      component: Services
     },
-    // {
-    //   path: `${routesMap.registerService}/:customerId`,
-    //   name: t("Đăng ký sử dụng dịch vụ"),
-    //   component: RegisterService
-    // },
+    {
+      path: routesMap.comboService,
+      name: t("Danh sách dịch vụ"),
+      component: ComboService
+    },
     {
       path: `${routesMap.dashboard}`,
       name: t("Dashboard"),
