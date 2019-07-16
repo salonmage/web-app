@@ -3,16 +3,21 @@ import { Button, Form, FormGroup, Label, Input, CustomInput } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import DatePicker from "react-datepicker";
 import routesMap from "../../common/routesMap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { addUser } from "../../redux/users/actions";
 import useEvent from "../../hooks/useEvent";
 import { ADD_USER_SUCCESS, ADD_USER_FAIL } from "../../redux/users/types";
 import { get } from "lodash";
+import { getUser } from "../../redux/user/actions";
 
-function AddCustomer(props) {
+function EditCustomer(props) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getUser(props.match.params.customerId));
+  }, [dispatch, props.match.params.customerId]);
 
   function handleAddUser(e) {
     e.preventDefault();
@@ -29,7 +34,7 @@ function AddCustomer(props) {
         },
         {
           key: "gender",
-          text: gender
+          number: gender
         },
         {
           key: "address",
@@ -61,10 +66,25 @@ function AddCustomer(props) {
     setError(get(errors, "response.data.description", ""));
   });
 
+  const user = useSelector(state => state.user);
+
   const [birthday, setBirthday] = useState(() => new Date());
   function handleChangeBirthday(birthday) {
     setBirthday(birthday);
   }
+
+  React.useEffect(() => {
+    setFullName(get(user, "fullName", ""));
+    setEmail(get(user, "email", ""));
+    setGender(get(user, "gender", "female"));
+    setAddress(get(user, "address", ""));
+    setJob(get(user, "job", ""));
+    setPhone(get(user, "phone", ""));
+    setPhone(get(user, "phone", ""));
+    if (get(user, "birthday", "")) {
+      setBirthday(new Date(moment.unix(get(user, "birthday", ""))));
+    }
+  }, [user]);
 
   const [fullName, setFullName] = React.useState("");
   function handleChangeFullName(e) {
@@ -206,4 +226,4 @@ function AddCustomer(props) {
   );
 }
 
-export default AddCustomer;
+export default EditCustomer;

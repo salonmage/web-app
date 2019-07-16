@@ -10,6 +10,7 @@ export default {
   home: "/",
   listCustomer: parentRoutes.customer + "/danh-sach-khach-hang",
   addCustomer: parentRoutes.customer + "/them-khach-hang",
+  editCustomer: parentRoutes.customer + "/sua-thong-tin-khach-hang",
   listEmployees: parentRoutes.employess + "/danh-sach-nhan-vien",
   addEmployees: parentRoutes.employess + "/them-nhan-vien",
   generalInformation: "/thong-tin-chung",

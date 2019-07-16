@@ -4,8 +4,10 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { getListUser } from "../../redux/users/actions";
 import { get } from "lodash";
+import { NavLink } from "react-router-dom";
+import routesMap from "../../common/routesMap";
 
-function ListCustomer() {
+function ListCustomer(props) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -36,7 +38,9 @@ function ListCustomer() {
                 <td>{get(user, "phone", "")}</td>
                 <td>{get(user, "email", "")}</td>
                 <td>
-                  <i className="fas fa-edit link" />{" "}
+                  <NavLink to={`${routesMap.editCustomer}/${user.id}`}>
+                    <i className="fas fa-edit link" />
+                  </NavLink>{" "}
                   <i className="fas fa-trash-alt link" />
                 </td>
               </tr>
