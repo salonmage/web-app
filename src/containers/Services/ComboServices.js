@@ -1,5 +1,17 @@
 import React from "react";
-import { Button, Form, FormGroup, Input, Table, Row, Col } from "reactstrap";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Input,
+  Table,
+  Row,
+  Col,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter
+} from "reactstrap";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getListComboService } from "../../redux/comboServices/actions";
@@ -17,31 +29,7 @@ function ComboServices() {
   return (
     <>
       <Row>
-        <Col md="4">
-          <Form>
-            <FormGroup>
-              <Input type="text" placeholder={t("Tên gói dịch vụ")} />
-            </FormGroup>
-
-            <FormGroup row className="sbtGroup">
-              <Col md="6" className="item">
-                <Input type="select">
-                  <option value="">{t("Chọn dịch vụ")}</option>
-                  <option value="1">Chăm sóc da mặt</option>
-                  <option value="2">IPL</option>
-                  <option value="3">PRP</option>
-                </Input>
-              </Col>
-              <Col md="6" className="item">
-                <Input type="text" placeholder={t("Thứ tự")} />
-              </Col>
-            </FormGroup>
-
-            <FormGroup>
-              <Button color="primary">{t("Save Changes")}</Button>
-            </FormGroup>
-          </Form>
-        </Col>
+        <AddService />
         <Col md="8">
           <Input
             type="text"
@@ -73,6 +61,55 @@ function ComboServices() {
         </Col>
       </Row>
     </>
+  );
+}
+
+function AddService() {
+  const { t } = useTranslation();
+
+  const [modal, setModal] = React.useState(false);
+  function toggle() {
+    setModal(!modal);
+  }
+
+  return (
+    <Col md="4">
+      <Form>
+        <FormGroup row>
+          <Col md="8">
+            <Input type="text" placeholder={t("Tên gói dịch vụ")} />
+          </Col>
+          <Col md="4">
+            <Button onClick={toggle} color="secondary">
+              {t("Thêm DV")}
+            </Button>
+            <Modal isOpen={modal} toggle={toggle}>
+              <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+              <ModalBody>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onClick={toggle}>
+                  Do Something
+                </Button>{" "}
+                <Button color="secondary" onClick={toggle}>
+                  Cancel
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </Col>
+        </FormGroup>
+        <FormGroup>
+          <Button color="primary">{t("Save Changes")}</Button>
+        </FormGroup>
+      </Form>
+    </Col>
   );
 }
 

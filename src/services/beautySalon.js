@@ -1,12 +1,12 @@
 import request from "../common/request";
-import { getToken } from '../common/utils'
+import { getToken } from "../common/utils";
 
 const apiUrl = process.env.REACT_APP_API_URL;
-const version = process.env.REACT_APP_API_VERSION
+const version = process.env.REACT_APP_API_VERSION;
 
 /**
- * 
- * @param {*} beautyOrderId 
+ *
+ * @param {*} beautyOrderId
  * @param {*} data {user_id, type, name, services:[{service_id}]}
  */
 export function updateBeautyOrder(beautyOrderId, data) {
@@ -21,7 +21,7 @@ export function updateBeautyOrder(beautyOrderId, data) {
 }
 
 /**
- * 
+ *
  * @param {*} data {user_id, type, name, services:[{service_id}]}
  */
 export function createBeautyOrder(data) {
@@ -45,7 +45,7 @@ export function getListComboBeautyService() {
 }
 
 /**
- * 
+ *
  * @param {*} data {name, services: [{service_id, number}]}
  */
 export function createComboBeautyService(data) {
@@ -60,8 +60,8 @@ export function createComboBeautyService(data) {
 }
 
 /**
- * 
- * @param {*} beautyServiceId 
+ *
+ * @param {*} beautyServiceId
  * @param {*} data {name, retail_price}
  */
 export function updateBeautyService(beautyServiceId, data) {
@@ -76,7 +76,7 @@ export function updateBeautyService(beautyServiceId, data) {
 }
 
 /**
- * 
+ *
  * @param {*} data {name, retail_price}
  */
 export function createBeautyService(data) {
@@ -87,5 +87,15 @@ export function createBeautyService(data) {
       "x-access-token": getToken()
     },
     data
+  });
+}
+
+export function getListBeautyService() {
+  return request({
+    url: `${apiUrl}/${version}/beauty-salon/services`,
+    method: "GET",
+    headers: {
+      "x-access-token": getToken()
+    }
   });
 }

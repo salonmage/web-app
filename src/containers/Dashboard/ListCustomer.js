@@ -13,11 +13,22 @@ import {
 import { useTranslation } from "react-i18next";
 import routesMap from "../../common/routesMap";
 import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getListUser } from "../../redux/users/actions";
+import { getValueOfAttribute } from "../../common/utils";
+import { get } from "lodash";
 
 export default withRouter(ListCustomer);
 
 function ListCustomer(props) {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getListUser());
+  }, [dispatch]);
+
+  const users = useSelector(state => state.users);
 
   return (
     <>
@@ -46,20 +57,24 @@ function ListCustomer(props) {
         </Row>
 
         <ListGroup>
-          <ListGroupItem
-            className="sbtLink"
-            onClick={() => props.history.push(`${routesMap.detailCustomer}/1`)}
-          >
-            <span>Ngô Tuấn Long</span>{" "}
-            <span className="small-circle bg-green" />
-          </ListGroupItem>
-          <ListGroupItem className="sbtLink">
-            <span>Nguyễn Mạnh Hưng</span>{" "}
-            <span className="small-circle bg-orange" />
-          </ListGroupItem>
-          <ListGroupItem className="sbtLink">
-            <span>Nguyễn Bảo Ngọc</span>{" "}
-          </ListGroupItem>
+          {users.map(user => {
+            const fullname = get(
+              getValueOfAttribute(user.attributes, "fullname"),
+              "text",
+              ""
+            );
+            return (
+              <ListGroupItem
+                key={user.id}
+                className="sbtLink"
+                onClick={() =>
+                  props.history.push(`${routesMap.detailCustomer}/${user.id}`)
+                }
+              >
+                <span>{fullname}</span>{" "}
+              </ListGroupItem>
+            );
+          })}
         </ListGroup>
       </Card>
     </>

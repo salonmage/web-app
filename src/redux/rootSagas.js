@@ -3,12 +3,14 @@ import userLoginSagas from "./userLogin/sagas";
 import staffSagas from "./staffs/sagas";
 import serviceSagas from "./services/sagas";
 import comboServiceSagas from "./comboServices/sagas";
+import userSagas from "./users/sagas";
 
 export default function* rootSaga() {
   yield all([
     userLoginSagas(),
     staffSagas(),
     serviceSagas(),
-    comboServiceSagas()
+    comboServiceSagas(),
+    userSagas()
   ]);
 }

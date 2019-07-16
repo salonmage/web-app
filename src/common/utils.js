@@ -1,5 +1,13 @@
 import { get } from "lodash";
 
+export function getValueOfAttribute(attributes, key) {
+  try {
+    return attributes.find(attribute => attribute.key === key);
+  } catch (error) {
+    //
+  }
+}
+
 export const getToken = () => {
   return get(
     JSON.parse(localStorage.getItem("state")),

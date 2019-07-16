@@ -2,8 +2,8 @@ import React from "react";
 import { Button, Form, FormGroup, Input, Table, Row, Col } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import useEvent from "../../hooks/useEvent";
-import { useDispatch } from "react-redux";
-import { addService } from "../../redux/services/actions";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { addService, getListService } from "../../redux/services/actions";
 import { ADD_SERVICE_SUCCESS } from "../../redux/services/types";
 import NumberFormat from "react-number-format";
 
@@ -38,6 +38,16 @@ function Services() {
   useEvent(ADD_SERVICE_SUCCESS, () => {
     resetForm();
   });
+
+  React.useEffect(() => {
+    dispatch(getListService());
+  }, [dispatch]);
+
+  const services = useSelector(state => state.services, shallowEqual);
+
+  function handleDeleteService() {
+    
+  }
 
   return (
     <>
@@ -80,11 +90,26 @@ function Services() {
               <tr>
                 <th>{t("Tên")}</th>
                 <th>{t("Giá")}</th>
-                <th>{t("Tình trạng")}</th>
                 <th>{t("Thao tác")}</th>
               </tr>
             </thead>
-            <tbody />
+            <tbody>
+              {services.map(service => {
+                return (
+                  <tr key={service.id}>
+                    <td>{service.name}</td>
+                    <td>{service.retail_price}</td>
+                    <td>
+                      <i
+                        onClick={handleDeleteService}
+                        style={{ cursor: "pointer" }}
+                        className="fas fa-trash-alt"
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </Table>
         </Col>
       </Row>
