@@ -50,7 +50,7 @@ function ListCustomer(props) {
                 onClick={() => props.history.push(routesMap.addCustomer)}
                 color="primary"
               >
-                Thêm
+                {t("Thêm")}
               </Button>
             </FormGroup>
           </Col>
@@ -59,7 +59,7 @@ function ListCustomer(props) {
         <ListGroup>
           {users.map(user => {
             const fullname = get(
-              getValueOfAttribute(user.attributes, "fullname"),
+              getValueOfAttribute(user.attributes, "fullName"),
               "text",
               ""
             );
