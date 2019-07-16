@@ -15,7 +15,9 @@ function formatData(data) {
     user.attributes.map(attribute => {
       if (attribute.text) user[attribute.key] = attribute.text;
       if (attribute.list) user[attribute.key] = attribute.list;
+      return false;
     });
+    return false;
   });
   return data;
 }
