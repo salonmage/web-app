@@ -5,6 +5,34 @@ const apiUrl = process.env.REACT_APP_API_URL;
 const version = process.env.REACT_APP_API_VERSION;
 
 /**
+ * 
+ * @param {*} comboBeautyServiceId 
+ */
+export function deleteComboBeautyService(comboBeautyServiceId) {
+  return request({
+    url: `${apiUrl}/${version}/beauty-salon/combo-services/${comboBeautyServiceId}`,
+    method: "DELETE",
+    headers: {
+      "x-access-token": getToken()
+    }
+  });
+}
+
+/**
+ * 
+ * @param {*} beautyServiceId 
+ */
+export function deleteBeautyService(beautyServiceId) {
+  return request({
+    url: `${apiUrl}/${version}/beauty-salon/services/${beautyServiceId}`,
+    method: "DELETE",
+    headers: {
+      "x-access-token": getToken()
+    }
+  });
+}
+
+/**
  *
  * @param {*} beautyOrderId
  * @param {*} data {user_id, type, name, services:[{service_id}]}
