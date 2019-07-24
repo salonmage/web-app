@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input, CustomInput } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import DatePicker from "react-datepicker";
-import routesMap from "../../common/routesMap";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import { addUser } from "../../redux/users/actions";
+import { updateUser } from "../../redux/users/actions";
 import useEvent from "../../hooks/useEvent";
-import { ADD_USER_SUCCESS, ADD_USER_FAIL } from "../../redux/users/types";
+import { UPDATE_USER_SUCCESS, UPDATE_USER_FAIL } from "../../redux/users/types";
 import { get } from "lodash";
 import { getUser } from "../../redux/user/actions";
 
@@ -19,9 +18,12 @@ function EditCustomer(props) {
     dispatch(getUser(props.match.params.customerId));
   }, [dispatch, props.match.params.customerId]);
 
-  function handleAddUser(e) {
+  const user = useSelector(state => state.user);
+
+  function handleUpdateUser(e) {
     e.preventDefault();
     setError("");
+    const userId = user.id;
     const payload = {
       attributes: [
         {
@@ -34,7 +36,7 @@ function EditCustomer(props) {
         },
         {
           key: "gender",
-          number: gender
+          text: gender
         },
         {
           key: "address",
@@ -54,19 +56,17 @@ function EditCustomer(props) {
         }
       ]
     };
-    dispatch(addUser(payload));
+    dispatch(updateUser(userId, payload));
   }
 
-  useEvent(ADD_USER_SUCCESS, () => {
-    props.history.push(routesMap.dashboard);
+  useEvent(UPDATE_USER_SUCCESS, () => {
+    alert("Update user success");
   });
 
   const [error, setError] = React.useState("");
-  useEvent(ADD_USER_FAIL, errors => {
+  useEvent(UPDATE_USER_FAIL, errors => {
     setError(get(errors, "response.data.description", ""));
   });
-
-  const user = useSelector(state => state.user);
 
   const [birthday, setBirthday] = useState(() => new Date());
   function handleChangeBirthday(birthday) {
@@ -120,7 +120,7 @@ function EditCustomer(props) {
     <>
       <h1>{t("Thêm khách hàng")}</h1>
       {error && <p className="alert alert-danger">{error}</p>}
-      <Form onSubmit={handleAddUser}>
+      <Form onSubmit={handleUpdateUser}>
         <FormGroup>
           <Label for="name">{t("Họ và tên")}</Label>
           <Input
