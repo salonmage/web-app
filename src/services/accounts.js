@@ -1,12 +1,12 @@
 import request from "../common/request";
-import { getToken } from '../common/utils'
+import { getToken } from "../common/utils";
 
 const apiUrl = process.env.REACT_APP_API_URL;
-const version = process.env.REACT_APP_API_VERSION
+const version = process.env.REACT_APP_API_VERSION;
 
 /**
- * 
- * @param {*} locationId 
+ *
+ * @param {*} locationId
  */
 export function deleteLocation(locationId) {
   return request({
@@ -106,7 +106,7 @@ export function getMyInfo() {
 
 /**
  *
- * @param {*} data {fullname, email, password, phone,name}
+ * @param {*} data {fullname, email, password, phone, name}
  */
 export function createAccount(data) {
   return request({
